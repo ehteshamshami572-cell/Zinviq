@@ -19,12 +19,7 @@ export interface ProjectSpec {
   techStack: string[];
   deliverablesList: string[];
   resultsOverview: string[];
-  clientQuote?: {
-    text: string;
-    author: string;
-    title: string;
-  };
-  status: 'LIVE STORE' | 'ENTERPRISE DEPLOYED' | 'RANK #1 GOOGLE' | 'ACTIVE SCALE';
+  status: 'EXAMPLE BUILD' | 'EXAMPLE PROGRAMME' | 'EXAMPLE PLATFORM';
   growthBadge: string;
   year: string;
 }

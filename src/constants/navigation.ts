@@ -23,7 +23,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
       {
         label: 'Search Engine Optimization',
         href: '/services/seo',
-        description: 'Technical SEO, Core Web Vitals, and Page #1 Google search ranking dominance.',
+        description: 'Technical SEO, Core Web Vitals, and buyer-intent search visibility.',
       },
       {
         label: 'Digital Marketing & Ads',
@@ -47,15 +47,15 @@ export const FOOTER_LINKS = {
   ],
   company: [
     { label: 'About Zinviq', href: '/about' },
-    { label: 'Verified Case Studies', href: '/case-studies' },
+    { label: 'Case Studies', href: '/case-studies' },
     { label: 'Free Technical & SEO Audit', href: '/contact' },
     { label: 'Privacy Policy', href: '/privacy-policy' },
     { label: 'Terms of Service', href: '/terms' },
   ],
   caseStudies: [
-    { label: 'Aura Luxe London (+340% Sales)', href: '/case-studies/aura-luxe-shopify' },
-    { label: 'Novacrest Capital (100 Core Vitals)', href: '/case-studies/novacrest-wordpress-portal' },
-    { label: 'Nordic BioHealth (180K SEO Visits)', href: '/case-studies/nordic-biohealth-seo' },
-    { label: 'Veloce Chronographs (4.6x ROAS)', href: '/case-studies/veloce-performance-marketing' },
+    { label: 'Shopify rebuild example', href: '/case-studies/aura-luxe-shopify' },
+    { label: 'WordPress platform example', href: '/case-studies/novacrest-wordpress-portal' },
+    { label: 'Technical SEO programme example', href: '/case-studies/nordic-biohealth-seo' },
+    { label: 'Paid acquisition example', href: '/case-studies/veloce-performance-marketing' },
   ],
 };

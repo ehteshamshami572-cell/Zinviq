@@ -1,7 +1,7 @@
 # Zinviq Corporate Platform — Technical Architecture & Roadmap
-> **Aesthetic Philosophy**: "Zenith & Intelligence" | Clean Light Minimalist | Precision in Motion  
-> **Color Strategy**: Crisp Pure White (`#FFFFFF`), Glacial Ice (`#F8FAFC`), Precision Cyan (`#00A3FF` / `#00D2FF`), High-Contrast Slate Ink (`#0F172A`).  
-> **Strict Rule**: No dark mode backgrounds, no dark themes, and zero purple/violet tones.
+> **Aesthetic Philosophy**: "Midnight Signal" | Premium navy corporate | Precision in Motion  
+> **Color Strategy**: Navy foundation (`#08142E` / `#0D1D3D`), white headings and body text, hot-pink accent (`#FF2D8D` / `#FF4FA3`).  
+> **Strict Rule**: Navy, white and hot pink are the brand palette. Cyan/blue and purple accents are deprecated.
 
 ---
 
@@ -16,7 +16,7 @@ zinviq/
 │   │   └── favicon.ico
 │   ├── images/
 │   │   ├── showcase/             # Case study hero renders
-│   │   └── og-image.jpg          # 1200x630 light-theme OpenGraph preview
+│   │   └── og-image.svg          # 1200x630 navy/hot-pink OpenGraph preview
 │   └── fonts/                    # Local optimized typography (if not using next/font)
 ├── src/
 │   ├── app/
@@ -95,54 +95,27 @@ zinviq/
 
 ---
 
-## 2. Design System Tokens ("Zenith & Intelligence" — Light Mode Only)
+## 2. Design System Tokens ("Midnight Signal" — Navy / White / Hot Pink)
 
-```typescript
-// tailwind.config.ts
-import type { Config } from "tailwindcss";
+The canonical tokens live in `src/app/globals.css` as HSL CSS variables, and Tailwind maps to them via `hsl(var(--token) / <alpha-value>)`.
 
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "#FFFFFF",
-        surface: {
-          50: "#F8FAFC",   // Ice white
-          100: "#F1F5F9",  // Subtle card surface
-          200: "#E2E8F0",  // Hairline borders
-          300: "#CBD5E1",
-        },
-        brand: {
-          cyan: "#00D2FF",       // Electric Cyan from the logo
-          blue: "#00A3FF",       // Primary action & link color
-          deepBlue: "#0066CC",   // High-contrast interactive hover
-          glow: "rgba(0, 210, 255, 0.15)",
-        },
-        ink: {
-          900: "#0F172A",  // Primary headings (Slate-900)
-          700: "#334155",  // Body copy (Slate-700)
-          500: "#64748B",  // Subtitles / metadata (Slate-500)
-          400: "#94A3B8",  // Subtle labels
-        }
-      },
-      boxShadow: {
-        'zenith': '0 4px 20px -2px rgba(0, 163, 255, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-        'zenith-hover': '0 12px 32px -4px rgba(0, 163, 255, 0.16), 0 4px 12px -2px rgba(0, 0, 0, 0.04)',
-        'cyan-glow': '0 0 25px -5px rgba(0, 210, 255, 0.35)',
-      },
-      backgroundImage: {
-        'light-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-        'cyan-radial': 'radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.08) 0%, transparent 70%)',
-      }
-    },
-  },
-  plugins: [],
-};
+```css
+/* globals.css (excerpt) */
+--navy-950: 222 62% 5%;   /* page background */
+--navy-900: 222 55% 9%;   /* card / section surface */
+--navy-800: 222 48% 13%;
+--navy-700: 222 40% 19%;  /* borders */
 
-export default config;
+--pink-300: 330 100% 77%;
+--pink-400: 330 100% 66%; /* accent text / hover */
+--pink-500: 330 100% 58%; /* primary CTA */
+--pink-600: 330 92% 48%;
+--pink-700: 330 86% 39%;  /* high-contrast CTA background */
+
+--background: var(--navy-950);
+--foreground: 0 0% 100%;
+--primary: var(--pink-500);
+--ring: var(--pink-400);
 ```
+
+UI primitives follow shadcn/ui conventions in `src/components/ui` (`button`, `badge`, `card`, `input`, `textarea`, `select`, `label`, `accordion`). Do not reintroduce cyan/blue, purple or light-mode surfaces.

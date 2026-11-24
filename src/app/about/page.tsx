@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
     'Technical SEO Team',
   ],
   alternates: {
-    canonical: 'https://zinviq.com/about',
+    canonical: `${SITE_URL}/about`,
   },
   openGraph: {
     title: 'About Zinviq — Precision in Motion',
     description:
       'We reject slow templates and bloated plugins. Zinviq engineers high-performance web systems and data-driven growth machines.',
-    url: 'https://zinviq.com/about',
+    url: `${SITE_URL}/about`,
   },
 };
 
@@ -33,37 +34,37 @@ export default function AboutPage() {
     {
       title: 'Precision Over Presumption',
       desc: 'We never guess. Every layout choice, code refactor, and SEO cluster is backed by empirical data, real user behavior, and Google Search telemetry.',
-      icon: <Terminal className="w-6 h-6 text-[#00F0FF]" />,
+      icon: <Terminal className="w-6 h-6 text-pink-200" />,
     },
     {
       title: 'Zero-Bloat Engineering',
       desc: 'We refuse to install heavy page builders or cheap pre-made themes. Every line of code is custom-crafted for speed, stability, and longevity.',
-      icon: <Zap className="w-6 h-6 text-[#00F0FF]" />,
+      icon: <Zap className="w-6 h-6 text-pink-200" />,
     },
     {
       title: 'True Commercial Incrementality',
       desc: 'Rankings and traffic only matter if they drive revenue. We align our engineering sprints and paid ad funnels with top-line business growth.',
-      icon: <Target className="w-6 h-6 text-[#00F0FF]" />,
+      icon: <Target className="w-6 h-6 text-pink-200" />,
     },
     {
       title: 'Radical Transparency',
       desc: 'No vague monthly agency reports. You receive direct access to senior engineers, real-time analytics dashboards, and clear sprint milestone tracking.',
-      icon: <ShieldCheck className="w-6 h-6 text-[#00F0FF]" />,
+      icon: <ShieldCheck className="w-6 h-6 text-pink-200" />,
     },
   ];
 
   return (
-    <div className="bg-[#050814] pt-36 pb-28 relative overflow-hidden">
+    <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
       {/* Top Ambient Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-[#00F0FF]/15 via-[#0070F3]/08 to-transparent blur-[130px] rounded-full"
+        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-pink-400/15 via-pink-600/08 to-transparent blur-[130px] rounded-full"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-20">
-          <Badge variant="cyan" className="mb-4">
+          <Badge variant="lavender" className="mb-4">
             Studio Manifesto
           </Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
@@ -87,11 +88,11 @@ export default function AboutPage() {
               <strong className="text-white font-semibold">Zinviq was built to be the antidote.</strong> We are a modern software house combining rigorous computer science disciplines with conversion-rate psychology and data-driven marketing.
             </p>
             <p>
-              When we build a Shopify Plus store or an enterprise WordPress platform, we build it to pass Core Web Vitals with 100/100 benchmarks. When we execute an SEO campaign, we target the exact high-intent queries your buyers use when they have their credit cards out.
+              When we build a Shopify Plus store or an enterprise WordPress platform, we build against agreed Core Web Vitals budgets. When we execute an SEO campaign, we target the exact high-intent queries your buyers use when they have their credit cards out.
             </p>
           </div>
 
-          <div className="lg:col-span-5 bg-[#080E21]/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl space-y-6 shadow-2xl">
+          <div className="lg:col-span-5 bg-navy-900/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl space-y-6 shadow-2xl">
             <BrandLogo size="lg" />
             <div className="border-t border-white/[0.06] pt-6 space-y-4 text-xs font-mono text-slate-300">
               <div className="flex justify-between">
@@ -100,15 +101,15 @@ export default function AboutPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">CORE DISCIPLINES</span>
-                <span className="text-[#00F0FF]">SHOPIFY • WORDPRESS • SEO • ADS</span>
+                <span className="text-pink-200">SHOPIFY • WORDPRESS • SEO • ADS</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">CLIENT RETENTION RATE</span>
-                <span className="text-emerald-400">96.4% ANNUAL</span>
+                <span className="text-slate-500">ENGAGEMENT MODEL</span>
+                <span className="text-emerald-400">MONTHLY REPORTING</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">DELIVERY SPEED BENCHMARK</span>
-                <span className="text-white">&lt; 1.0s MOBILE LCP</span>
+                <span className="text-slate-500">QUALITY GATE</span>
+                <span className="text-white">PRE-LAUNCH CHECKS</span>
               </div>
             </div>
           </div>
@@ -117,7 +118,7 @@ export default function AboutPage() {
         {/* Core Principles */}
         <div className="mb-24">
           <div className="max-w-2xl mb-12">
-            <Badge variant="blue" className="mb-3">
+            <Badge variant="royal" className="mb-3">
               Guiding Ethos
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -129,7 +130,7 @@ export default function AboutPage() {
             {VALUES.map((val) => (
               <div
                 key={val.title}
-                className="p-8 rounded-3xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl space-y-3 hover:border-[#00F0FF]/40 transition-colors"
+                className="p-8 rounded-3xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl space-y-3 hover:border-pink-400/40 transition-colors"
               >
                 <div className="p-3 w-fit rounded-xl bg-white/[0.03] border border-white/[0.08] mb-4">
                   {val.icon}
@@ -142,7 +143,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="rounded-3xl border border-[#00F0FF]/30 bg-gradient-to-r from-[#00F0FF]/10 via-[#0070F3]/10 to-transparent p-10 sm:p-14 text-center">
+        <div className="rounded-3xl border border-pink-400/30 bg-gradient-to-r from-pink-400/10 via-pink-600/10 to-transparent p-10 sm:p-14 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
             Build With Precision. Scale With Certainty.
           </h2>

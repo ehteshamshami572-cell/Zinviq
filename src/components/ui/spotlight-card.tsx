@@ -12,7 +12,7 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function SpotlightCard({
   children,
   className,
-  glowColor = 'rgba(0, 240, 255, 0.14)',
+  glowColor = 'hsl(var(--pink-500) / 0.14)',
   ...props
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -32,12 +32,12 @@ export function SpotlightCard({
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
       className={cn(
-        'relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl p-7 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-[#00F0FF]/40 hover:shadow-[0_12px_45px_-5px_rgba(0,240,255,0.18)] hover:-translate-y-1',
+        'relative overflow-hidden rounded-2xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl p-7 shadow-card-glow transition-all duration-300 hover:border-pink-400/40 hover:shadow-pink-glow hover:-translate-y-1',
         className
       )}
       {...props}
     >
-      {/* Dynamic Electric Cyan Spotlight Beam */}
+      {/* Dynamic hot-pink spotlight beam */}
       <div
         className="pointer-events-none absolute -inset-px transition-opacity duration-300"
         style={{

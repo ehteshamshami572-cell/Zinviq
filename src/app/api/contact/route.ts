@@ -31,6 +31,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Silently accept honeypot submissions so bots get no feedback loop.
+    if (typeof body.company === 'string' && body.company.trim().length > 0) {
+      return NextResponse.json({ success: true, message: 'Inquiry received.' }, { status: 200 });
+    }
+
     // 3. Schema Validation with Zod
     const validation = contactFormSchema.safeParse(body);
     if (!validation.success) {
@@ -51,7 +56,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          message: 'Unable to deliver message at this time. Please email direct@zinviq.com directly.',
+          message: 'Unable to deliver message at this time. Please email growth@zinviq.com directly.',
         },
         { status: 502 }
       );

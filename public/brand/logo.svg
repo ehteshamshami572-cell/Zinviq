@@ -1,13 +1,13 @@
 <svg viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="zinviqCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#00D2FF" />
-      <stop offset="50%" stopColor="#00A3FF" />
-      <stop offset="100%" stopColor="#0070F3" />
+    <linearGradient id="zinviqSignalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFB3D9" />
+      <stop offset="50%" stopColor="#FF4FA3" />
+      <stop offset="100%" stopColor="#D10056" />
     </linearGradient>
     <linearGradient id="zinviqRibbonFold" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#38BDF8" />
-      <stop offset="100%" stopColor="#0284C7" />
+      <stop offset="0%" stopColor="#FFB3D9" />
+      <stop offset="100%" stopColor="#D10056" />
     </linearGradient>
     <filter id="beaconGlow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="blur" />
@@ -20,21 +20,21 @@
 
   <!-- Mark (Z geometric ribbon) -->
   <g transform="translate(10, 0)">
-    <path d="M18 20 H82 V34 H38 Z" fill="url(#zinviqCyanGrad)" />
-    <path d="M82 22 L20 78 L26 84 L88 28 Z" fill="url(#zinviqCyanGrad)" />
+    <path d="M18 20 H82 V34 H38 Z" fill="url(#zinviqSignalGrad)" />
+    <path d="M82 22 L20 78 L26 84 L88 28 Z" fill="url(#zinviqSignalGrad)" />
     <path d="M20 78 L34 64 L48 78 Z" fill="url(#zinviqRibbonFold)" opacity="0.9" />
-    <path d="M26 66 H82 V80 H18 Z" fill="url(#zinviqCyanGrad)" />
-    <circle cx="82" cy="22" r="4.5" fill="#00E5FF" filter="url(#beaconGlow)" />
+    <path d="M26 66 H82 V80 H18 Z" fill="url(#zinviqSignalGrad)" />
+    <circle cx="82" cy="22" r="4.5" fill="#FF4FA3" filter="url(#beaconGlow)" />
     <circle cx="82" cy="22" r="2.5" fill="#FFFFFF" />
   </g>
 
   <!-- Typographic Wordmark: ZINVIQ -->
-  <text x="125" y="58" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="34" letter-spacing="0.22em" fill="#0F172A">
+  <text x="125" y="58" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="34" letter-spacing="0.22em" fill="#FFFFFF">
     ZINVIQ
   </text>
-  
+
   <!-- Tagline: PRECISION IN MOTION -->
-  <text x="127" y="77" font-family="'JetBrains Mono', monospace, sans-serif" font-weight="600" font-size="10" letter-spacing="0.28em" fill="#64748B">
+  <text x="127" y="77" font-family="'JetBrains Mono', monospace, sans-serif" font-weight="600" font-size="10" letter-spacing="0.28em" fill="#FFB3D9">
     PRECISION IN MOTION
   </text>
 </svg>

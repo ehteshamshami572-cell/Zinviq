@@ -1,81 +1,75 @@
 import React from 'react';
+import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { Star, Quote } from 'lucide-react';
+import { FileCheck2, Gauge, CalendarCheck, ShieldCheck, ArrowRight } from 'lucide-react';
 
-const TESTIMONIALS = [
+const PRINCIPLES = [
   {
-    name: 'Marcus Vance',
-    role: 'Founder & CEO, Aura Luxe London',
-    project: 'Custom Shopify 2.0 & CRO Overhaul',
-    stat: '+340% Revenue Increase',
-    quote:
-      'Zinviq completely transformed our Shopify storefront. We cut our mobile load time to under a second, and our checkout completion surged immediately. They operate with unbelievable technical precision.',
+    icon: FileCheck2,
+    title: 'Written scope before work',
+    description: 'Deliverables, KPIs and approval steps are agreed before a sprint starts.',
   },
   {
-    name: 'Sarah Jenkins',
-    role: 'Head of Growth, Nordic BioHealth',
-    project: 'Technical SEO & Programmatic Strategy',
-    stat: '180K+ Organic Visits/Mo',
-    quote:
-      'We spent years hiring generic SEO agencies that delivered zero tangible revenue. Zinviq came in, rebuilt our site architecture, and within 4 months we were ranking #1 for all our core commercial terms.',
+    icon: Gauge,
+    title: 'Baseline before claims',
+    description: 'Speed, crawlability and conversion data are recorded before we recommend changes.',
   },
   {
-    name: 'David Reynolds',
-    role: 'Managing Director, Novacrest Group',
-    project: 'Custom WordPress & ACF Architecture',
-    stat: '100/100 Core Web Vitals',
-    quote:
-      'Our previous WordPress site was plagued with slow speeds and bloated plugins. Zinviq built a clean, custom Gutenberg block framework that runs at lightning speed and gives our marketing team complete autonomy.',
+    icon: CalendarCheck,
+    title: 'Reporting on a cadence',
+    description: 'Weekly build updates and monthly performance reviews against agreed goals.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'No invented proof',
+    description: 'We do not publish testimonials, badges or scores without written permission and evidence.',
   },
 ];
 
-export function TestimonialsSection() {
+export function TrustSection() {
   return (
-    <section className="py-28 bg-[#050814] relative border-t border-white/[0.06]">
+    <section className="py-28 bg-navy-950 relative border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="cyan" className="mb-3">
-            Client Testimonials
+          <Badge variant="lavender" className="mb-3">
+            Evidence-First Engagement
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Trusted by Ambitious Brands & Enterprises
+            Clear Process. Measurable Work. No Invented Proof.
           </h2>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">
-            See how our custom development, search engine dominance, and performance marketing drive tangible bottom-line growth.
+            We would rather show you how we work than paste numbers we cannot verify. Every engagement is measured
+            against a baseline you can see.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((t) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {PRINCIPLES.map(({ icon: Icon, title, description }) => (
             <div
-              key={t.name}
-              className="rounded-2xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl p-8 shadow-[0_10px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between hover:border-[#00F0FF]/40 transition-all"
+              key={title}
+              className="rounded-2xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl p-7 hover:border-pink-400/40 transition-colors"
             >
-              <div>
-                {/* 5 Stars */}
-                <div className="flex items-center gap-1 mb-4 text-[#00F0FF]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current drop-shadow-[0_0_6px_#00F0FF]" />
-                  ))}
-                </div>
-
-                <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-6 italic">
-                  "{t.quote}"
-                </p>
-              </div>
-
-              <div className="pt-5 border-t border-white/[0.06]">
-                <div className="text-xs font-mono font-bold text-[#00F0FF] mb-1">
-                  {t.stat}
-                </div>
-                <div className="font-bold text-white text-base">{t.name}</div>
-                <div className="text-xs text-slate-400 mt-0.5">{t.role}</div>
-                <div className="text-[11px] text-slate-500 font-mono mt-1">
-                  Scope: {t.project}
-                </div>
-              </div>
+              <Icon className="w-6 h-6 text-pink-200 mb-5" aria-hidden="true" />
+              <h3 className="font-bold text-white text-lg">{title}</h3>
+              <p className="text-slate-300 text-sm mt-2 leading-relaxed">{description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/case-studies"
+            className="inline-flex items-center gap-2 rounded-xl bg-pink-700 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-pink-600"
+          >
+            Review Our Approach
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-pink-400/50 hover:text-pink-200"
+          >
+            Request Your Baseline Audit
+          </Link>
         </div>
       </div>
     </section>

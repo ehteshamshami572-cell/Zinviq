@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES_LIST } from '@/constants/services-data';
@@ -20,21 +21,21 @@ export const metadata: Metadata = {
     'Custom Web Architecture',
   ],
   alternates: {
-    canonical: 'https://zinviq.com/services',
+    canonical: `${SITE_URL}/services`,
   },
   openGraph: {
     title: 'Services & Capabilities | Zinviq Digital Engineering',
     description:
       'High-converting Shopify stores, zero-bloat WordPress portals, Page 1 Google SEO, and 4x+ ROAS paid advertising.',
-    url: 'https://zinviq.com/services',
+    url: `${SITE_URL}/services`,
   },
 };
 
 const ICONS: Record<string, React.ReactNode> = {
-  'shopify-development': <ShoppingBag className="w-6 h-6 text-[#00F0FF]" />,
-  'wordpress-development': <Globe className="w-6 h-6 text-[#00F0FF]" />,
-  'seo': <Search className="w-6 h-6 text-[#00F0FF]" />,
-  'digital-marketing': <BarChart3 className="w-6 h-6 text-[#00F0FF]" />,
+  'shopify-development': <ShoppingBag className="w-6 h-6 text-pink-200" />,
+  'wordpress-development': <Globe className="w-6 h-6 text-pink-200" />,
+  'seo': <Search className="w-6 h-6 text-pink-200" />,
+  'digital-marketing': <BarChart3 className="w-6 h-6 text-pink-200" />,
 };
 
 export default function ServicesPage() {
@@ -49,7 +50,7 @@ export default function ServicesPage() {
         '@type': 'Service',
         name: srv.title,
         description: srv.description,
-        url: `https://zinviq.com/services/${srv.slug}`,
+        url: `${SITE_URL}/services/${srv.slug}`,
       },
     })),
   };
@@ -61,17 +62,17 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="bg-[#050814] pt-36 pb-28 relative overflow-hidden">
+      <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
         {/* Ambient Top Glow */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-[#00F0FF]/15 via-[#0070F3]/08 to-transparent blur-[130px] rounded-full"
+          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-pink-400/15 via-pink-600/08 to-transparent blur-[130px] rounded-full"
         />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mb-20">
-            <Badge variant="cyan" className="mb-4">
+            <Badge variant="lavender" className="mb-4">
               Core Capabilities Directory
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
@@ -87,16 +88,16 @@ export default function ServicesPage() {
             {SERVICES_LIST.map((service, index) => (
               <SpotlightCard
                 key={service.id}
-                className="p-8 sm:p-12 border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl rounded-3xl"
+                className="p-8 sm:p-12 border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl rounded-3xl"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                   {/* Left Column */}
                   <div className="lg:col-span-7 space-y-6">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+                      <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/[0.08] shadow-pink-glow">
                         {ICONS[service.id]}
                       </div>
-                      <Badge variant="blue" className="text-xs">
+                      <Badge variant="royal" className="text-xs">
                         {service.badge}
                       </Badge>
                       <span className="font-mono text-xs text-slate-500">
@@ -108,7 +109,7 @@ export default function ServicesPage() {
                       {service.title}
                     </h2>
 
-                    <p className="text-[#00F0FF] text-sm sm:text-base font-semibold">
+                    <p className="text-pink-200 text-sm sm:text-base font-semibold">
                       {service.tagline}
                     </p>
 
@@ -126,7 +127,7 @@ export default function ServicesPage() {
                           const deliverableTitle = typeof d === 'string' ? d : d.title;
                           return (
                             <div key={deliverableTitle} className="flex items-start gap-2 text-xs text-slate-200">
-                              <Check className="w-3.5 h-3.5 text-[#00F0FF] shrink-0 mt-0.5" />
+                              <Check className="w-3.5 h-3.5 text-pink-200 shrink-0 mt-0.5" />
                               <span>{deliverableTitle}</span>
                             </div>
                           );
@@ -152,13 +153,13 @@ export default function ServicesPage() {
                   {/* Right Column: Key Metrics */}
                   <div className="lg:col-span-5 bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 sm:p-8 space-y-6">
                     <div className="font-mono text-xs text-slate-400 uppercase tracking-wider">
-                      Verified Client Benchmarks
+                      Delivery Benchmarks
                     </div>
 
                     <div className="space-y-5">
                       {service.impactMetrics.map((metric) => (
                         <div key={metric.label} className="border-b border-white/[0.04] pb-4">
-                          <div className="text-3xl font-bold text-white text-[#00F0FF]">
+                          <div className="text-3xl font-bold text-white text-pink-200">
                             {metric.value}
                           </div>
                           <div className="text-xs font-semibold text-slate-200 mt-0.5">

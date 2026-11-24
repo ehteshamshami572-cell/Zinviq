@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site-config';
 import { PROJECTS_DATA } from '@/constants/projects-data';
 import { SERVICES_DETAILED_DATA } from '@/constants/services-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://zinviq.com';
+  const baseUrl = SITE_URL;
   const lastModified = new Date();
 
   // Core Static Pages

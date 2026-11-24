@@ -122,9 +122,9 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     shortTitle: 'WordPress Development',
     tagline: 'Custom, ultra-secure, and blazing-fast WordPress platforms free from bloated plugins.',
     badge: 'CUSTOM ACF & WOOCOMMERCE',
-    heroHighlight: 'Zero Plugin Bloat. 100/100 Core Web Vitals. Institutional Security.',
+    heroHighlight: 'Lean Builds. Measured Core Web Vitals. Hardened Security.',
     metaTitle: 'Custom WordPress & WooCommerce Development Agency | Zinviq',
-    metaDescription: 'Zinviq builds custom WordPress and WooCommerce portals with bespoke Gutenberg blocks, ACF architectures, zero plugin bloat, and 100/100 Core Web Vitals.',
+    metaDescription: 'Zinviq builds custom WordPress and WooCommerce portals with bespoke Gutenberg blocks, ACF architectures, minimal dependencies and measured Core Web Vitals.',
     keywords: [
       'WordPress Development Agency',
       'Custom WordPress Themes',
@@ -137,11 +137,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     description:
       'Say goodbye to slow, vulnerable, plugin-heavy websites. Zinviq builds enterprise WordPress and WooCommerce portals with tailor-made Gutenberg blocks, strict database optimization, and bank-grade security protocols.',
     longDescription:
-      'Most WordPress agencies install 50+ third-party plugins that conflict with each other, slow the website to a crawl, and create dangerous security backdoors. Zinviq rejects that approach completely. We build tailor-made WordPress websites using Advanced Custom Fields (ACF Pro) and native Gutenberg blocks with lightweight PHP 8.3 code and clean object-oriented architectures. The result is a marketing machine that loads in under 800 milliseconds and gives your editorial team total creative freedom.',
+      'Most WordPress agencies install 50+ third-party plugins that conflict with each other, slow the website to a crawl, and create dangerous security backdoors. Zinviq rejects that approach completely. We build tailor-made WordPress websites using Advanced Custom Fields (ACF Pro) and native Gutenberg blocks with lightweight PHP 8.3 code and clean object-oriented architectures. The result is a lean platform that is measured against agreed performance budgets and gives your editorial team practical control.',
     impactMetrics: [
-      { label: 'Core Web Vitals Pass Rate', value: '100%', detail: 'Passed across all mobile and desktop real-user metrics' },
-      { label: 'Security Vulnerability Score', value: '0.00', detail: 'Zero unvetted third-party plugins; strict CSP headers' },
-      { label: 'Database Query Reduction', value: '-65%', detail: 'Custom transient caching and Redis object cache indexing' },
+      { label: 'Performance Validation', value: 'Per build', detail: 'Core Web Vitals checked on staging and after launch' },
+      { label: 'Security Review', value: 'Per release', detail: 'Dependencies, headers and access rules checked before deploy' },
+      { label: 'Query Audits', value: 'Per sprint', detail: 'Slow queries identified and optimised where needed' },
     ],
     deliverables: [
       {
@@ -166,7 +166,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
     ],
     featuredTech: ['WordPress 6.5+', 'WooCommerce', 'PHP 8.3', 'ACF Pro', 'MySQL', 'Redis', 'Cloudflare Enterprise'],
-    conversionHighlight: 'Zero plugin bloat guarantees top 1% speed benchmarks on Google PageSpeed Insights.',
+    conversionHighlight: 'Lean WordPress builds with measurable speed and security checks.',
     whyChooseUs: [
       {
         title: 'Strictly Zero-Bloat Philosophy',
@@ -203,11 +203,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     code: 'SRV-03',
     title: 'Data-Driven Technical SEO & Search Dominance',
     shortTitle: 'Search Engine Optimization (SEO)',
-    tagline: 'Dominate page #1 for commercial keywords that drive qualified, high-intent revenue.',
+    tagline: 'Improve visibility for commercial keywords that match buyer intent.',
     badge: 'TECHNICAL & E-COMMERCE SEO',
-    heroHighlight: 'Page #1 Rankings. Compounding Traffic. Unshakeable Organic Authority.',
+    heroHighlight: 'Technical Fixes. Buyer-Intent Content. Transparent Reporting.',
     metaTitle: 'Technical SEO Agency & Organic Search Growth Services | Zinviq',
-    metaDescription: 'Zinviq delivers data-driven Technical SEO, e-commerce organic rank dominance, high-authority digital PR backlinks, and Schema.org rich snippets.',
+    metaDescription: 'Zinviq delivers technical SEO, e-commerce structure, editorially earned links and Schema.org structured data with transparent reporting.',
     keywords: [
       'Technical SEO Agency',
       'Ecommerce SEO Services',
@@ -218,13 +218,13 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       'Schema Markup Optimization',
     ],
     description:
-      'SEO is not just rankings; it is predictable, compounding revenue. We execute technical site architecture overhauls, programmatic SEO, semantic content strategies, and high-authority digital PR backlink campaigns that outrank your fiercest competitors.',
+      'SEO is not just rankings; it is structured, measurable work that compounds over time. We execute technical site architecture overhauls, programmatic SEO, semantic content strategies, and high-authority digital PR backlink campaigns that outrank your fiercest competitors.',
     longDescription:
       'Search engines have evolved beyond basic keyword stuffing. Modern Google ranking algorithms reward deep topical authority, semantic entity relationships, pristine Core Web Vitals, and authoritative editorial citations. Zinviq takes a mathematical, engineering-led approach to SEO. We diagnose crawl budget waste, fix faceted navigation canonical issues, build comprehensive topical content maps, and execute digital PR campaigns that earn links from tier-1 industry publications.',
     impactMetrics: [
-      { label: 'Average Organic Traffic Lift', value: '+310%', detail: 'Measured across active 6-month client search campaigns' },
-      { label: 'Page 1 Keyword Rankings', value: '1,850+', detail: 'High-intent commercial terms driving qualified buying intent' },
-      { label: 'Organic Revenue ROI', value: '5.8x', detail: 'Compounding revenue that reduces reliance on expensive paid ads' },
+      { label: 'Technical Issue Register', value: 'Tracked', detail: 'Crawl, index and template issues logged with before/after checks' },
+      { label: 'Non-Brand Visibility', value: 'Reported monthly', detail: 'Keyword movement reviewed in Search Console' },
+      { label: 'Organic Conversions', value: 'Goal-based', detail: 'Measured against conversion goals agreed with you' },
     ],
     deliverables: [
       {
@@ -267,7 +267,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     faqs: [
       {
         question: 'How long does it take to see tangible revenue results from SEO?',
-        answer: 'Technical fixes and indexing corrections often produce positive ranking momentum within 4 to 8 weeks. Sustained Page #1 dominance on highly competitive commercial terms typically matures within 4 to 6 months.',
+        answer: 'Technical fixes and indexing corrections often produce positive ranking momentum within 4 to 8 weeks. Competitive commercial rankings typically require 3 to 6 months of consistent technical and content work.',
       },
       {
         question: 'How do you measure SEO success?',
@@ -288,7 +288,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     shortTitle: 'Digital Marketing & Paid Ads',
     tagline: 'High-ROAS Meta, Google, and TikTok ad funnels backed by deep data attribution and retention.',
     badge: 'PAID ADS & RETENTION MARKETING',
-    heroHighlight: '4x+ Target ROAS. Full-Funnel Paid Acquisition. High Customer LTV.',
+    heroHighlight: 'Tested Creative. Attribution Setup. Clear Reporting.',
     metaTitle: 'Performance Digital Marketing Agency | Meta & Google Ads | Zinviq',
     metaDescription: 'Zinviq scales e-commerce brands with high-ROAS Meta Ads, Google Performance Max, TikTok campaigns, server-side CAPI tracking, and Klaviyo retention funnels.',
     keywords: [
@@ -305,9 +305,9 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     longDescription:
       'Throwing money at paid ads without server-side tracking, scientific creative testing, and high-converting landing pages is a recipe for burning cash. Zinviq engineers full-funnel performance marketing machines. We set up Server-Side Conversions API (CAPI) to bypass iOS privacy blind spots, create direct-response video and static creatives, and pair every campaign with custom post-click landing pages that multiply your conversion rates.',
     impactMetrics: [
-      { label: 'Average Client ROAS', value: '4.4x', detail: 'Blended return on ad spend maintained at scaling budgets' },
-      { label: 'Managed Ad Spend', value: '$8.5M+', detail: 'Proven track record managing large-scale global ad accounts' },
-      { label: 'Repeat Customer Rate', value: '+38%', detail: 'Driven by automated Klaviyo lifecycle retention workflows' },
+      { label: 'Creative Tests', value: 'Tracked', detail: 'Each test recorded with a hypothesis and decision rule' },
+      { label: 'Spend Control', value: 'Rule-based', detail: 'Budgets scaled only against agreed performance rules' },
+      { label: 'Reporting Cadence', value: 'Weekly', detail: 'Clear performance view with stop, learn and scale decisions' },
     ],
     deliverables: [
       {

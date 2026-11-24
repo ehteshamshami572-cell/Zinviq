@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -33,12 +34,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     description: service.metaDescription,
     keywords: service.keywords,
     alternates: {
-      canonical: `https://zinviq.com/services/${service.slug}`,
+      canonical: `${SITE_URL}/services/${service.slug}`,
     },
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://zinviq.com/services/${service.slug}`,
+      url: `${SITE_URL}/services/${service.slug}`,
       siteName: 'Zinviq',
       type: 'website',
     },
@@ -66,7 +67,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
     provider: {
       '@type': 'Organization',
       name: 'Zinviq',
-      url: 'https://zinviq.com',
+      url: SITE_URL,
     },
     areaServed: 'Worldwide',
     hasOfferCatalog: {
@@ -91,19 +92,19 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://zinviq.com',
+        item: SITE_URL,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Services',
-        item: 'https://zinviq.com/services',
+        item: `${SITE_URL}/services`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: service.shortTitle,
-        item: `https://zinviq.com/services/${service.slug}`,
+        item: `${SITE_URL}/services/${service.slug}`,
       },
     ],
   };
@@ -119,11 +120,11 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <div className="bg-[#050814] pt-36 pb-28 relative overflow-hidden">
+      <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
         {/* Ambient Glow */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#00F0FF]/15 via-[#0070F3]/08 to-transparent blur-[140px] rounded-full"
+          className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-pink-400/15 via-pink-600/08 to-transparent blur-[140px] rounded-full"
         />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -137,14 +138,14 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               SERVICES
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-[#00F0FF] font-semibold">{service.code}</span>
+            <span className="text-pink-200 font-semibold">{service.code}</span>
           </nav>
 
           {/* Service Hero */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
             <div className="lg:col-span-8 space-y-6">
-              <Badge variant="cyan">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] shadow-[0_0_8px_#00F0FF] animate-pulse mr-1" />
+              <Badge variant="lavender">
+                <span className="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-pink-glow animate-pulse mr-1" />
                 {service.badge}
               </Badge>
 
@@ -152,7 +153,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 {service.title}
               </h1>
 
-              <p className="text-xl sm:text-2xl font-semibold text-[#00F0FF]">
+              <p className="text-xl sm:text-2xl font-semibold text-pink-200">
                 {service.heroHighlight}
               </p>
 
@@ -170,14 +171,14 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 </Link>
                 <Link href="/case-studies">
                   <Button variant="secondary" size="lg">
-                    View Verified Results
+                    View Example Engagements
                   </Button>
                 </Link>
               </div>
             </div>
 
             {/* Metrics Sidebar */}
-            <div className="lg:col-span-4 bg-[#080E21]/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl space-y-6 shadow-2xl">
+            <div className="lg:col-span-4 bg-navy-900/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl space-y-6 shadow-2xl">
               <div className="text-xs font-mono text-slate-400 uppercase tracking-wider border-b border-white/[0.06] pb-3">
                 Expected Performance Outcomes
               </div>
@@ -185,7 +186,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               <div className="space-y-5">
                 {service.impactMetrics.map((m) => (
                   <div key={m.label} className="border-b border-white/[0.04] pb-4">
-                    <div className="text-3xl font-extrabold text-[#00F0FF]">
+                    <div className="text-3xl font-extrabold text-pink-200">
                       {m.value}
                     </div>
                     <div className="text-xs font-bold text-white mt-0.5">
@@ -219,7 +220,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {/* Detailed Deliverables Section */}
           <div className="mb-24">
             <div className="max-w-3xl mb-12">
-              <Badge variant="blue" className="mb-3">
+              <Badge variant="royal" className="mb-3">
                 Engineering Scope
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -234,10 +235,10 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               {service.deliverables.map((d, index) => (
                 <div
                   key={d.title}
-                  className="rounded-2xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl p-7 flex flex-col justify-between hover:border-[#00F0FF]/40 transition-colors"
+                  className="rounded-2xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl p-7 flex flex-col justify-between hover:border-pink-400/40 transition-colors"
                 >
                   <div>
-                    <span className="font-mono text-xs text-[#00F0FF] font-bold">
+                    <span className="font-mono text-xs text-pink-200 font-bold">
                       DELIVERABLE // 0{index + 1}
                     </span>
                     <h3 className="text-lg font-bold text-white mt-2 mb-3">
@@ -255,7 +256,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {/* Why Choose Zinviq */}
           <div className="mb-24 border-y border-white/[0.06] py-20">
             <div className="max-w-3xl mb-12">
-              <Badge variant="cyan" className="mb-3">
+              <Badge variant="lavender" className="mb-3">
                 Competitive Advantage
               </Badge>
               <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -269,7 +270,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                   key={w.title}
                   className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08]"
                 >
-                  <ShieldCheck className="w-8 h-8 text-[#00F0FF] mb-4" />
+                  <ShieldCheck className="w-8 h-8 text-pink-200 mb-4" />
                   <h3 className="text-lg font-bold text-white mb-2">
                     {w.title}
                   </h3>
@@ -284,7 +285,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {/* FAQs for Service */}
           <div className="max-w-4xl mx-auto mb-24">
             <div className="text-center mb-12">
-              <Badge variant="cyan" className="mb-3">
+              <Badge variant="lavender" className="mb-3">
                 Service FAQ
               </Badge>
               <h2 className="text-3xl font-bold text-white tracking-tight">
@@ -296,10 +297,10 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               {service.faqs.map((faq) => (
                 <div
                   key={faq.question}
-                  className="p-6 rounded-2xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl"
+                  className="p-6 rounded-2xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl"
                 >
                   <h3 className="text-base font-bold text-white flex items-center gap-2 mb-2">
-                    <HelpCircle className="w-4 h-4 text-[#00F0FF] shrink-0" />
+                    <HelpCircle className="w-4 h-4 text-pink-200 shrink-0" />
                     {faq.question}
                   </h3>
                   <p className="text-sm text-slate-300 leading-relaxed pl-6">
@@ -311,7 +312,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
 
           {/* Bottom Conversion CTA */}
-          <div className="rounded-3xl border border-[#00F0FF]/30 bg-gradient-to-r from-[#00F0FF]/10 via-[#0070F3]/10 to-transparent p-10 sm:p-14 text-center relative overflow-hidden">
+          <div className="rounded-3xl border border-pink-400/30 bg-gradient-to-r from-pink-400/10 via-pink-600/10 to-transparent p-10 sm:p-14 text-center relative overflow-hidden">
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Ready to Accelerate Your {service.shortTitle}?
             </h2>

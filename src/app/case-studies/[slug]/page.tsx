@@ -1,11 +1,12 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { PROJECTS_DATA } from '@/constants/projects-data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowUpRight, ChevronRight, TrendingUp, CheckCircle2, ShieldCheck, Quote, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ChevronRight, TrendingUp, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface CaseStudyPageProps {
   params: {
@@ -28,15 +29,15 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   }
 
   return {
-    title: `${project.title} | Case Study | Zinviq`,
+    title: `${project.title} | Example Engagement | Zinviq`,
     description: project.summary,
     alternates: {
-      canonical: `https://zinviq.com/case-studies/${project.slug}`,
+      canonical: `${SITE_URL}/case-studies/${project.slug}`,
     },
     openGraph: {
-      title: `${project.title} — Case Study | Zinviq`,
+      title: `${project.title} — Example Engagement | Zinviq`,
       description: project.summary,
-      url: `https://zinviq.com/case-studies/${project.slug}`,
+      url: `${SITE_URL}/case-studies/${project.slug}`,
       siteName: 'Zinviq',
       type: 'article',
     },
@@ -62,19 +63,19 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://zinviq.com',
+        item: SITE_URL,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Case Studies',
-        item: 'https://zinviq.com/case-studies',
+        item: `${SITE_URL}/case-studies`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: project.title,
-        item: `https://zinviq.com/case-studies/${project.slug}`,
+        item: `${SITE_URL}/case-studies/${project.slug}`,
       },
     ],
   };
@@ -86,11 +87,11 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <div className="bg-[#050814] pt-36 pb-28 relative overflow-hidden">
+      <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
         {/* Ambient Top Glow */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#00F0FF]/15 via-[#0070F3]/08 to-transparent blur-[140px] rounded-full"
+          className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-pink-400/15 via-pink-600/08 to-transparent blur-[140px] rounded-full"
         />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -104,14 +105,14 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
               CASE STUDIES
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-[#00F0FF] font-semibold">{project.client}</span>
+            <span className="text-pink-200 font-semibold">{project.client}</span>
           </nav>
 
           {/* Header */}
           <div className="max-w-4xl space-y-6 mb-16">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="cyan">{project.categoryLabel}</Badge>
-              <Badge variant="blue">{project.industry}</Badge>
+              <Badge variant="lavender">{project.categoryLabel}</Badge>
+              <Badge variant="royal">{project.industry}</Badge>
               <span className="font-mono text-xs text-emerald-400 flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 {project.status}
@@ -128,10 +129,10 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
           </div>
 
           {/* Key Metrics Dashboard */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 bg-[#080E21]/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl shadow-2xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 bg-navy-900/80 border border-white/[0.08] backdrop-blur-xl p-8 rounded-3xl shadow-2xl">
             <div className="border-r border-white/[0.06] pr-4">
-              <div className="text-xs font-mono text-slate-400 uppercase">Primary Growth Lift</div>
-              <div className="text-4xl font-extrabold text-[#00F0FF] mt-1">{project.impactMetric.value}</div>
+              <div className="text-xs font-mono text-slate-400 uppercase">Primary Measure</div>
+              <div className="text-4xl font-extrabold text-pink-200 mt-1">{project.impactMetric.value}</div>
               <div className="text-xs text-white font-medium mt-0.5">{project.impactMetric.label}</div>
             </div>
 
@@ -139,7 +140,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
               <div key={m.label} className="border-r border-white/[0.06] last:border-none pr-4">
                 <div className="text-xs font-mono text-slate-400 uppercase">{m.label}</div>
                 <div className="text-3xl font-bold text-white mt-1">{m.value}</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Verified in Analytics</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Checked in Analytics</div>
               </div>
             ))}
           </div>
@@ -147,7 +148,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
           {/* Challenge & Solution Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             {/* The Challenge */}
-            <div className="p-8 sm:p-10 rounded-3xl border border-white/[0.08] bg-[#080E21]/60 backdrop-blur-xl space-y-4">
+            <div className="p-8 sm:p-10 rounded-3xl border border-white/[0.08] bg-navy-900/60 backdrop-blur-xl space-y-4">
               <span className="font-mono text-xs text-rose-400 uppercase tracking-wider font-semibold">
                 The Bottleneck
               </span>
@@ -160,8 +161,8 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
             </div>
 
             {/* The Solution */}
-            <div className="p-8 sm:p-10 rounded-3xl border border-[#00F0FF]/30 bg-[#080E21]/60 backdrop-blur-xl space-y-4 shadow-[0_0_30px_rgba(0,240,255,0.06)]">
-              <span className="font-mono text-xs text-[#00F0FF] uppercase tracking-wider font-semibold">
+            <div className="p-8 sm:p-10 rounded-3xl border border-pink-400/30 bg-navy-900/60 backdrop-blur-xl space-y-4 shadow-pink-glow">
+              <span className="font-mono text-xs text-pink-200 uppercase tracking-wider font-semibold">
                 Engineering Approach
               </span>
               <h2 className="text-2xl font-bold text-white tracking-tight">
@@ -176,41 +177,29 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
           {/* Results Overview & Client Testimonial */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
             <div className="lg:col-span-7 space-y-6">
-              <Badge variant="cyan">Quantifiable Impact</Badge>
+              <Badge variant="lavender">What We Measure</Badge>
               <h2 className="text-3xl font-bold text-white tracking-tight">
                 Business & Operational Results
               </h2>
               <div className="space-y-3">
                 {project.resultsOverview?.map((res) => (
                   <div key={res} className="flex items-start gap-3 text-sm text-slate-200">
-                    <CheckCircle2 className="w-5 h-5 text-[#00F0FF] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-pink-200 shrink-0 mt-0.5" />
                     <span>{res}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {project.clientQuote && (
-              <div className="lg:col-span-5 p-8 rounded-3xl border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl space-y-4">
-                <Quote className="w-8 h-8 text-[#00F0FF]" />
-                <p className="text-slate-200 italic text-base leading-relaxed">
-                  "{project.clientQuote.text}"
-                </p>
-                <div className="pt-2 border-t border-white/[0.06]">
-                  <div className="font-bold text-white">{project.clientQuote.author}</div>
-                  <div className="text-xs text-slate-400">{project.clientQuote.title}</div>
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Bottom Conversion CTA */}
-          <div className="rounded-3xl border border-[#00F0FF]/30 bg-gradient-to-r from-[#00F0FF]/10 via-[#0070F3]/10 to-transparent p-10 sm:p-14 text-center">
+          <div className="rounded-3xl border border-pink-400/30 bg-gradient-to-r from-pink-400/10 via-pink-600/10 to-transparent p-10 sm:p-14 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-              Ready to Achieve Similar Results for Your Brand?
+              Ready to See What Your Site Needs?
             </h2>
             <p className="text-slate-300 text-base max-w-2xl mx-auto mb-8">
-              Book a technical scoping session. Our senior team evaluates your website architecture and delivers a clear ROI roadmap within 24 hours.
+              Book a technical scoping session. We review your website architecture and document a prioritised roadmap after the audit.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">

@@ -1,46 +1,68 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site-config';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { StoreProvider } from '@/store/provider';
 import { Navbar } from '@/components/common/navbar';
 import { Footer } from '@/components/common/footer';
 import { ToastContainer } from '@/components/ui/toast';
+import { WhatsAppButton } from '@/components/common/whatsapp-button';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+});
+
+const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zinviq.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'Zinviq | High-Converting Shopify, WordPress, SEO & Digital Marketing Agency',
+    default: 'Zinviq | Shopify, WordPress, SEO & Growth Agency',
     template: '%s | Zinviq',
   },
   description:
-    'Zinviq is a premier digital engineering and performance growth agency. We architect custom Shopify & WordPress platforms, dominate Page #1 Google search rankings, and scale paid acquisition with 4x+ ROAS.',
+    'Zinviq builds fast Shopify and WordPress platforms, ranks brands on Google with technical SEO, and scales profitable paid growth.',
   keywords: [
     'Zinviq',
-    'Shopify Development Agency',
-    'Shopify Plus Development',
-    'Custom WordPress Development',
-    'WooCommerce Development',
-    'Technical SEO Agency',
-    'E-Commerce SEO Services',
-    'Performance Digital Marketing',
-    'Meta Ads Agency',
-    'Google Ads Management',
-    'Conversion Rate Optimization CRO',
+    'Shopify development agency',
+    'WordPress development agency',
+    'Technical SEO services',
+    'E-commerce growth agency',
+    'Performance digital marketing',
   ],
   authors: [{ name: 'Zinviq Digital Technologies' }],
   creator: 'Zinviq',
+  category: 'Technology',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://zinviq.com',
-    title: 'Zinviq — Shopify, WordPress, SEO & Digital Marketing Agency',
+    url: siteUrl,
+    title: 'Zinviq — Shopify, WordPress, SEO & Growth Agency',
     description:
-      'We build high-converting e-commerce stores, rank brands #1 on Google, and scale profitable paid advertising funnels with predictable precision.',
+      'Fast e-commerce builds, technical SEO that ranks, and paid acquisition built for measurable return.',
     siteName: 'Zinviq',
+    images: [
+      {
+        url: '/brand/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Zinviq — navy and hot-pink brand card with Shopify, WordPress, SEO and growth services',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zinviq — Precision in Motion',
-    description: 'High-converting Shopify, WordPress, SEO & Digital Marketing studio.',
+    description: 'Shopify, WordPress, technical SEO and performance marketing for ambitious brands.',
+    images: ['/brand/og-image.svg'],
   },
   robots: {
     index: true,
@@ -57,11 +79,19 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Zinviq',
-    url: 'https://zinviq.com',
-    logo: 'https://zinviq.com/brand/logo.svg',
+    url: siteUrl,
+    logo: `${siteUrl}/brand/logo.svg`,
     slogan: 'Precision in Motion',
     description:
-      'Full-service digital engineering and growth agency specializing in Shopify development, WordPress development, technical SEO, and digital marketing.',
+      'Digital engineering and growth agency specializing in Shopify development, WordPress development, technical SEO, and performance marketing.',
+    areaServed: 'Worldwide',
+    email: 'growth@zinviq.com',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'growth@zinviq.com',
+      availableLanguage: ['English'],
+    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Core Agency Capabilities',
@@ -71,7 +101,7 @@ export default function RootLayout({
           itemOffered: {
             '@type': 'Service',
             name: 'Shopify Development & CRO',
-            description: 'Custom Shopify Plus, Liquid themes, and high-converting checkout funnels.',
+            description: 'Custom Shopify Plus builds, Liquid themes, and checkout optimization.',
           },
         },
         {
@@ -79,15 +109,15 @@ export default function RootLayout({
           itemOffered: {
             '@type': 'Service',
             name: 'Enterprise WordPress & WooCommerce',
-            description: 'Custom Gutenberg blocks, enterprise speed optimization, and secure portals.',
+            description: 'Custom Gutenberg blocks, speed optimization, and secure portals.',
           },
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Data-Driven Technical SEO',
-            description: 'Page #1 Google search ranking dominance and organic revenue generation.',
+            name: 'Technical SEO',
+            description: 'Site architecture, Core Web Vitals, and high-intent search visibility.',
           },
         },
         {
@@ -95,31 +125,34 @@ export default function RootLayout({
           itemOffered: {
             '@type': 'Service',
             name: 'Performance Digital Marketing',
-            description: 'High-ROAS Meta Ads, Google Ads, and automated Klaviyo retention flows.',
+            description: 'Paid acquisition funnels and retention campaigns with clear reporting.',
           },
         },
       ],
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'Global',
-    },
   };
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#050814] text-white font-sans antialiased selection:bg-[#00F0FF]/30 selection:text-white">
+      <body className="min-h-screen bg-background text-white font-sans antialiased selection:bg-pink-500/50 selection:text-white">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-pink-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
         <StoreProvider>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
           <ToastContainer />
+          <WhatsAppButton />
         </StoreProvider>
       </body>
     </html>

@@ -6,7 +6,7 @@ const STEPS = [
   {
     step: '01',
     title: 'Technical & Commercial Discovery',
-    icon: <Search className="w-5 h-5 text-[#00F0FF]" />,
+    icon: <Search className="w-5 h-5 text-pink-200" />,
     description:
       'We audit your current tech stack, checkout drop-off rates, SEO crawl depth, and paid ad unit economics to identify high-leverage growth bottlenecks.',
     output: 'Comprehensive 40-Point Growth & Tech Audit',
@@ -14,7 +14,7 @@ const STEPS = [
   {
     step: '02',
     title: 'Architecture & UX Blueprinting',
-    icon: <Compass className="w-5 h-5 text-[#00F0FF]" />,
+    icon: <Compass className="w-5 h-5 text-pink-200" />,
     description:
       'We design high-converting wireframes, custom Gutenberg/Liquid architectures, and data-backed search intent matrices before writing a single line of code.',
     output: 'Figma UI/UX Prototypes & Technical Spec',
@@ -22,7 +22,7 @@ const STEPS = [
   {
     step: '03',
     title: 'Bespoke Development & Sprint Execution',
-    icon: <Code2 className="w-5 h-5 text-[#00F0FF]" />,
+    icon: <Code2 className="w-5 h-5 text-pink-200" />,
     description:
       'Our senior engineers code your custom Shopify or WordPress platform with zero bloat, sub-second speeds, and 100% strict Schema.org markup.',
     output: 'Staging Environment & QA Verification',
@@ -30,7 +30,7 @@ const STEPS = [
   {
     step: '04',
     title: 'Zero-Downtime Launch & Paid Scale',
-    icon: <Rocket className="w-5 h-5 text-[#00F0FF]" />,
+    icon: <Rocket className="w-5 h-5 text-pink-200" />,
     description:
       'We manage DNS cutovers with zero downtime, submit XML sitemaps to Google, launch multi-channel ad funnels, and continuously optimize conversions.',
     output: 'Compounding Revenue & Organic Growth',
@@ -39,10 +39,10 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="py-28 bg-[#050814] relative border-t border-white/[0.06]">
+    <section id="process" className="py-28 bg-navy-950 relative border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="cyan" className="mb-3">
+          <Badge variant="lavender" className="mb-3">
             Execution Framework
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
@@ -57,26 +57,26 @@ export function ProcessSection() {
           {STEPS.map((step) => (
             <div
               key={step.step}
-              className="relative rounded-2xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl p-6 sm:p-7 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:border-[#00F0FF]/40 transition-all group"
+              className="relative rounded-2xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl p-6 sm:p-7 shadow-card-glow hover:border-pink-400/40 transition-all group"
             >
-              {/* Step Number with Cyan glow */}
+              {/* Step Number with hot-pink glow */}
               <div className="flex items-center justify-between mb-5">
-                <span className="font-mono text-3xl font-extrabold text-white/[0.12] group-hover:text-[#00F0FF]/40 transition-colors">
+                <span className="font-mono text-3xl font-extrabold text-pink-200/60 group-hover:text-pink-200 transition-colors">
                   {step.step}
                 </span>
-                <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] shadow-[0_0_12px_rgba(0,240,255,0.15)]">
+                <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] shadow-pink-glow">
                   {step.icon}
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-pink-200 transition-colors">
                 {step.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                 {step.description}
               </p>
 
-              <div className="pt-4 border-t border-white/[0.06] text-[11px] font-mono text-[#00F0FF]">
+              <div className="pt-4 border-t border-white/[0.06] text-[11px] font-mono text-pink-200">
                 Deliverable: {step.output}
               </div>
             </div>

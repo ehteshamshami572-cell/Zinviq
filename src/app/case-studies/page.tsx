@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PROJECTS_DATA } from '@/constants/projects-data';
@@ -8,9 +9,9 @@ import { ArrowUpRight, TrendingUp, Layers, CheckCircle2 } from 'lucide-react';
 import { ProjectShowcase } from '@/components/sections/project-showcase';
 
 export const metadata: Metadata = {
-  title: 'Client Case Studies & Verified Growth Results | Zinviq',
+  title: 'Example Engagements & Delivery Approach | Zinviq',
   description:
-    'Review verified client case studies across Shopify, WordPress, technical SEO, and digital marketing. Real revenue gains, sub-second load times, and Page 1 Google rankings.',
+    'Review illustrative engagement examples across Shopify, WordPress, technical SEO, and digital marketing, with the checks and deliverables used in each.',
   keywords: [
     'Shopify Case Studies',
     'WordPress Case Studies',
@@ -19,36 +20,36 @@ export const metadata: Metadata = {
     'Performance Marketing Case Studies',
   ],
   alternates: {
-    canonical: 'https://zinviq.com/case-studies',
+    canonical: `${SITE_URL}/case-studies`,
   },
   openGraph: {
-    title: 'Verified Client Case Studies & Results | Zinviq',
+    title: 'Example Engagements & Delivery Approach | Zinviq',
     description:
-      'Real client transformations: +340% e-commerce revenue, 100/100 Core Web Vitals, 180K+ organic visits, and 4.6x ROAS.',
-    url: 'https://zinviq.com/case-studies',
+      'Illustrative Shopify, WordPress, SEO and paid acquisition engagements showing our delivery process.',
+    url: `${SITE_URL}/case-studies`,
   },
 };
 
 export default function CaseStudiesPage() {
   return (
-    <div className="bg-[#050814] pt-36 pb-28 relative overflow-hidden">
+    <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
       {/* Top Ambient Light */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-[#00F0FF]/15 via-[#0070F3]/08 to-transparent blur-[130px] rounded-full"
+        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-pink-400/15 via-pink-600/08 to-transparent blur-[130px] rounded-full"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <Badge variant="cyan" className="mb-4">
-            Commercial Track Record
+          <Badge variant="lavender" className="mb-4">
+            Delivery Approach
           </Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Real Metrics. Real Revenue. Zero Fluff.
+            See How We Work. Not Just What We Claim.
           </h1>
           <p className="text-slate-300 mt-5 text-lg leading-relaxed">
-            Every case study represents an ambitious business that outgrew slow templates, eliminated technical bottlenecks, and captured market share through custom engineering.
+            These examples show the audits, build standards and reporting we apply. Replace them with verified, permissioned client results when available.
           </p>
         </div>
 
@@ -57,7 +58,7 @@ export default function CaseStudiesPage() {
           {PROJECTS_DATA.map((project) => (
             <article
               key={project.id}
-              className="group flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#080E21]/80 backdrop-blur-xl p-8 shadow-[0_10px_35px_-10px_rgba(0,0,0,0.8)] hover:border-[#00F0FF]/40 hover:shadow-[0_15px_45px_-8px_rgba(0,240,255,0.18)] transition-all duration-300"
+              className="group flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-navy-900/80 backdrop-blur-xl p-8 shadow-card-glow hover:border-pink-400/40 hover:shadow-pink-glow transition-all duration-300"
             >
               <div>
                 {/* Top Client Metadata */}
@@ -65,14 +66,14 @@ export default function CaseStudiesPage() {
                   <span className="font-mono text-xs text-slate-400">
                     {project.client}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#00F0FF] bg-[#00F0FF]/10 px-2.5 py-0.5 rounded-full border border-[#00F0FF]/25">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] shadow-[0_0_6px_#00F0FF]" />
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-pink-200 bg-pink-400/10 px-2.5 py-0.5 rounded-full border border-pink-400/25">
+                    <span className="w-1.5 h-1.5 rounded-full bg-pink-400 shadow-pink-glow" />
                     {project.status}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl font-bold text-white group-hover:text-[#00F0FF] transition-colors leading-snug">
+                <h2 className="text-2xl font-bold text-white group-hover:text-pink-200 transition-colors leading-snug">
                   <Link href={`/case-studies/${project.slug}`}>
                     {project.title}
                   </Link>
@@ -83,12 +84,12 @@ export default function CaseStudiesPage() {
                 </p>
 
                 {/* Impact Metric Callout */}
-                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-[#00F0FF]/10 to-[#0070F3]/10 border border-[#00F0FF]/25 flex items-center gap-3.5">
-                  <div className="p-2 rounded-lg bg-[#00F0FF]/15 border border-[#00F0FF]/30">
-                    <TrendingUp className="w-4 h-4 text-[#00F0FF]" />
+                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-pink-400/10 to-pink-600/10 border border-pink-400/25 flex items-center gap-3.5">
+                  <div className="p-2 rounded-lg bg-pink-400/15 border border-pink-400/30">
+                    <TrendingUp className="w-4 h-4 text-pink-200" />
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-[#00F0FF] tracking-tight leading-none">
+                    <div className="text-xl font-bold text-pink-200 tracking-tight leading-none">
                       {project.impactMetric.value}
                     </div>
                     <div className="text-xs text-slate-200 font-medium mt-1">
@@ -100,12 +101,12 @@ export default function CaseStudiesPage() {
                 {/* Scope Highlights */}
                 <div className="mt-6 space-y-2">
                   <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                    <Layers className="w-3 h-3 text-[#00F0FF]" />
+                    <Layers className="w-3 h-3 text-pink-200" />
                     Key Architecture Solutions
                   </div>
                   {project.deliverablesList.slice(0, 3).map((item) => (
                     <div key={item} className="text-xs text-slate-300 flex items-start gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-pink-200 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -127,7 +128,7 @@ export default function CaseStudiesPage() {
 
                 <Link
                   href={`/case-studies/${project.slug}`}
-                  className="inline-flex items-center text-xs font-bold text-[#00F0FF] hover:underline gap-1"
+                  className="inline-flex items-center text-xs font-bold text-pink-200 hover:underline gap-1"
                 >
                   Read Case Study
                   <ArrowUpRight className="w-3.5 h-3.5" />
