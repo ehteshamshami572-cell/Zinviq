@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Zinviq',
+  title: 'Terms of Service',
   description: 'Zinviq terms of service and client engagement agreements.',
   robots: {
     index: true,
@@ -33,7 +33,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-bold text-white pt-4">2. Intellectual Property Ownership</h2>
           <p>
-            Upon full settlement of milestone invoices, all custom themes, custom codebase, graphic design deliverables, and content produced by Zinviq become the 100% exclusive intellectual property of the client.
+            Upon full settlement of milestone invoices, ownership of custom themes, custom codebase, graphic design deliverables, and content produced by Zinviq transfers to the client as set out in the signed agreement.
           </p>
 
           <h2 className="text-xl font-bold text-white pt-4">3. Performance & Guarantees</h2>

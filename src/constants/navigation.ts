@@ -28,7 +28,7 @@ export const MAIN_NAV_LINKS: NavLink[] = [
       {
         label: 'Digital Marketing & Ads',
         href: '/services/digital-marketing',
-        description: 'High-ROAS Meta and Google ad funnels with server-side CAPI tracking.',
+        description: 'Meta and Google ad funnels with first-party conversion tracking.',
       },
     ],
   },

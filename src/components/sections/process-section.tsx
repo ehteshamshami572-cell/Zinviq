@@ -9,14 +9,14 @@ const STEPS = [
     icon: <Search className="w-5 h-5 text-pink-200" />,
     description:
       'We audit your current tech stack, checkout drop-off rates, SEO crawl depth, and paid ad unit economics to identify high-leverage growth bottlenecks.',
-    output: 'Comprehensive 40-Point Growth & Tech Audit',
+    output: 'Prioritised Growth & Tech Audit',
   },
   {
     step: '02',
     title: 'Architecture & UX Blueprinting',
     icon: <Compass className="w-5 h-5 text-pink-200" />,
     description:
-      'We design high-converting wireframes, custom Gutenberg/Liquid architectures, and data-backed search intent matrices before writing a single line of code.',
+      'We design conversion-focused wireframes, custom Gutenberg/Liquid architectures and documented search-intent maps before development starts.',
     output: 'Figma UI/UX Prototypes & Technical Spec',
   },
   {
@@ -24,16 +24,16 @@ const STEPS = [
     title: 'Bespoke Development & Sprint Execution',
     icon: <Code2 className="w-5 h-5 text-pink-200" />,
     description:
-      'Our senior engineers code your custom Shopify or WordPress platform with zero bloat, sub-second speeds, and 100% strict Schema.org markup.',
+      'Our engineers build your custom Shopify or WordPress platform with lean code, measured speed budgets and valid structured data where eligible.',
     output: 'Staging Environment & QA Verification',
   },
   {
     step: '04',
-    title: 'Zero-Downtime Launch & Paid Scale',
+    title: 'Launch & Paid Scale',
     icon: <Rocket className="w-5 h-5 text-pink-200" />,
     description:
-      'We manage DNS cutovers with zero downtime, submit XML sitemaps to Google, launch multi-channel ad funnels, and continuously optimize conversions.',
-    output: 'Compounding Revenue & Organic Growth',
+      'We plan DNS cutovers, submit XML sitemaps to Google, launch the agreed acquisition channels and check results after release.',
+    output: 'Launch Checklist & Performance Review',
   },
 ];
 
@@ -46,10 +46,10 @@ export function ProcessSection() {
             Execution Framework
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            How We Deliver Compounding ROI
+            How We Plan, Build and Measure Growth
           </h2>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">
-            A battle-tested 4-step engineering and growth methodology designed to mitigate launch risks and maximize revenue velocity.
+            A documented four-step engineering and growth process designed to reduce launch risk and make each decision measurable.
           </p>
         </div>
 

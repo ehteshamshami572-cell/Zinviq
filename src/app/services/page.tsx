@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
+import { serializeJsonLd } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES_LIST } from '@/constants/services-data';
@@ -9,7 +10,7 @@ import { ArrowUpRight, Check, ShoppingBag, Globe, Search, BarChart3, Sparkles } 
 import { SpotlightCard } from '@/components/ui/spotlight-card';
 
 export const metadata: Metadata = {
-  title: 'Digital Engineering & Growth Services | Shopify, WordPress, SEO | Zinviq',
+  title: 'Digital Engineering & Growth Services',
   description:
     'Explore Zinviq full suite of digital engineering capabilities: Custom Shopify development, enterprise WordPress, data-driven technical SEO, and paid performance marketing.',
   keywords: [
@@ -24,10 +25,11 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/services`,
   },
   openGraph: {
-    title: 'Services & Capabilities | Zinviq Digital Engineering',
+    title: 'Services & Capabilities',
     description:
-      'High-converting Shopify stores, zero-bloat WordPress portals, Page 1 Google SEO, and 4x+ ROAS paid advertising.',
+      'Custom Shopify builds, lean WordPress portals, technical SEO and paid acquisition with clear reporting.',
     url: `${SITE_URL}/services`,
+    images: [OG_IMAGE],
   },
 };
 
@@ -59,7 +61,7 @@ export default function ServicesPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
 
       <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
@@ -79,7 +81,7 @@ export default function ServicesPage() {
               Engineered for Revenue Velocity & Market Dominance.
             </h1>
             <p className="text-slate-300 mt-5 text-lg leading-relaxed">
-              We replace sluggish templates and fragmented agencies with a unified team of elite software engineers, SEO specialists, and direct-response performance marketers.
+              We replace sluggish templates and fragmented agencies with one team covering development, technical SEO and paid acquisition.
             </p>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PROJECTS_DATA } from '@/constants/projects-data';
@@ -9,7 +9,7 @@ import { ArrowUpRight, TrendingUp, Layers, CheckCircle2 } from 'lucide-react';
 import { ProjectShowcase } from '@/components/sections/project-showcase';
 
 export const metadata: Metadata = {
-  title: 'Example Engagements & Delivery Approach | Zinviq',
+  title: 'Example Engagements & Delivery Approach',
   description:
     'Review illustrative engagement examples across Shopify, WordPress, technical SEO, and digital marketing, with the checks and deliverables used in each.',
   keywords: [
@@ -23,10 +23,11 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/case-studies`,
   },
   openGraph: {
-    title: 'Example Engagements & Delivery Approach | Zinviq',
+    title: 'Example Engagements & Delivery Approach',
     description:
       'Illustrative Shopify, WordPress, SEO and paid acquisition engagements showing our delivery process.',
     url: `${SITE_URL}/case-studies`,
+    images: [OG_IMAGE],
   },
 };
 

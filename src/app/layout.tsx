@@ -1,23 +1,17 @@
 import type { Metadata } from 'next';
-import { SITE_URL } from '@/lib/site-config';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { StoreProvider } from '@/store/provider';
+import { serializeJsonLd } from '@/lib/json-ld';
 import { Navbar } from '@/components/common/navbar';
 import { Footer } from '@/components/common/footer';
-import { ToastContainer } from '@/components/ui/toast';
+import { ToastProvider } from '@/components/ui/toast';
 import { WhatsAppButton } from '@/components/common/whatsapp-button';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
 });
 
 const siteUrl = SITE_URL;
@@ -29,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Zinviq',
   },
   description:
-    'Zinviq builds fast Shopify and WordPress platforms, ranks brands on Google with technical SEO, and scales profitable paid growth.',
+    'Zinviq builds Shopify and WordPress platforms, improves search visibility with technical SEO, and manages paid growth with clear reporting.',
   keywords: [
     'Zinviq',
     'Shopify development agency',
@@ -49,20 +43,13 @@ export const metadata: Metadata = {
     description:
       'Fast e-commerce builds, technical SEO that ranks, and paid acquisition built for measurable return.',
     siteName: 'Zinviq',
-    images: [
-      {
-        url: '/brand/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Zinviq — navy and hot-pink brand card with Shopify, WordPress, SEO and growth services',
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Zinviq — Precision in Motion',
     description: 'Shopify, WordPress, technical SEO and performance marketing for ambitious brands.',
-    images: ['/brand/og-image.svg'],
+    images: ['/brand/og-image.png'],
   },
   robots: {
     index: true,
@@ -133,11 +120,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </head>
       <body className="min-h-screen bg-background text-white font-sans antialiased selection:bg-pink-500/50 selection:text-white">
@@ -147,13 +134,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <StoreProvider>
+        <ToastProvider>
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
-          <ToastContainer />
           <WhatsAppButton />
-        </StoreProvider>
+        </ToastProvider>
       </body>
     </html>
   );

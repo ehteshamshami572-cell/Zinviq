@@ -37,11 +37,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     code: 'SRV-01',
     title: 'Shopify Development & E-Commerce Engineering',
     shortTitle: 'Shopify Development',
-    tagline: 'High-converting Shopify stores engineered for maximum AOV, sub-second speed, and 8-figure scale.',
+    tagline: 'Shopify stores engineered for clear funnel logic, measured speed and maintainable growth.',
     badge: 'SHOPIFY PLUS & CUSTOM LIQUID',
-    heroHighlight: 'Sub-Second Speeds. Zero Bloat. Maximum E-Commerce Conversions.',
-    metaTitle: 'Custom Shopify Development Agency & Shopify Plus Experts | Zinviq',
-    metaDescription: 'Zinviq engineers high-converting Shopify & Shopify Plus stores with custom Liquid themes, sub-second load times, and conversion-optimized checkout funnels.',
+    heroHighlight: 'Lean Builds. Measured Speed. Clear Funnel Checks.',
+    metaTitle: 'Custom Shopify Development Agency & Shopify Plus Experts',
+    metaDescription: 'Zinviq engineers Shopify and Shopify Plus stores with custom Liquid themes, measured mobile speed budgets and checkout funnel optimisation.',
     keywords: [
       'Shopify Development Agency',
       'Shopify Plus Development',
@@ -52,13 +52,13 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       'Shopify CRO Agency',
     ],
     description:
-      'We architect bespoke Shopify and Shopify Plus experiences that convert traffic into loyal repeat buyers. From custom Liquid theme engineering and private app integrations to seamless checkout funnel optimization, our stores are built for 7 and 8-figure scaling.',
+      'We architect bespoke Shopify and Shopify Plus experiences around the buyer journey. From custom Liquid theme engineering and private app integrations to checkout funnel optimisation, each build is scoped to your catalogue, integrations and growth goals.',
     longDescription:
-      'Off-the-shelf Shopify themes are plagued with bloated scripts, excessive DOM nodes, and unnecessary CSS that slow your store down and kill your mobile conversion rates. At Zinviq, we develop custom Shopify 2.0 themes from scratch using clean, modular Liquid code, Tailwind CSS, and lightweight JavaScript. Every pixel is engineered around user psychology, reducing cart abandonment, and pushing mobile load times under 1 second.',
+      'Off-the-shelf Shopify themes can carry bloated scripts, excessive DOM nodes and unused CSS that slow mobile pages. At Zinviq, we develop custom Shopify 2.0 themes from scratch using clean, modular Liquid code, Tailwind CSS and lightweight JavaScript. The build is measured against agreed speed budgets and checkout analytics instead of relying on generic claims.',
     impactMetrics: [
-      { label: 'Average Conversion Lift', value: '+42.8%', detail: 'Measured across 25+ direct-to-consumer store redesigns' },
-      { label: 'Mobile Page Speed', value: '< 1.1s', detail: 'Google PageSpeed Mobile Score consistently above 90' },
-      { label: 'Checkout Drop-off Reduction', value: '-35%', detail: 'Streamlined single-page and slide-out checkout drawers' },
+      { label: 'Conversion Baseline', value: 'Recorded', detail: 'Analytics captured before design and development starts' },
+      { label: 'Speed Budget', value: 'Agreed', detail: 'Mobile performance target set with you and checked on staging' },
+      { label: 'Checkout Review', value: 'Per release', detail: 'Funnel steps checked against analytics events' },
     ],
     deliverables: [
       {
@@ -67,7 +67,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         title: 'Headless Shopify (Next.js & Hydrogen)',
-        description: 'Cutting-edge headless commerce architectures delivering instant page transitions, custom product configurators, and localized global currencies.',
+        description: 'Headless commerce architectures with custom product configurators and locale-aware currency handling, measured against agreed performance budgets.',
       },
       {
         title: 'Private App Development & ERP/CRM Integrations',
@@ -78,20 +78,20 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
         description: 'Sticky slide-out cart drawers with tiered free-shipping progress bars, 1-click upsells, cross-sells, and trust reassurance elements.',
       },
       {
-        title: 'Zero-Downtime Platform Migrations',
-        description: 'Flawless store migrations from WooCommerce, Magento, or BigCommerce to Shopify Plus with 100% preservation of SEO rankings, order history, and customer accounts.',
+        title: 'Planned Platform Migrations',
+        description: 'Planned migrations from WooCommerce, Magento or BigCommerce to Shopify Plus with URL mapping, redirect checks and order/customer data transfer where the source platform allows.',
       },
     ],
     featuredTech: ['Shopify Plus', 'Liquid 2.0', 'Hydrogen', 'Next.js 14', 'GraphQL API', 'Klaviyo', 'Recharge'],
-    conversionHighlight: 'Average client revenue scales by 3.2x within 6 months of store relaunch.',
+    conversionHighlight: 'Custom builds measured against agreed speed, checkout and conversion baselines.',
     whyChooseUs: [
       {
         title: 'Zero Pre-Made Templates',
         description: 'We never install cheap ThemeForest templates that break. Every template is custom-coded for your brand identity and conversion goals.',
       },
       {
-        title: 'Sub-Second Speed Guarantee',
-        description: 'We optimize assets, defer non-critical scripts, and implement lazy loading to ensure your store flies on low-bandwidth mobile devices.',
+        title: 'Measured Speed Budget',
+        description: 'We optimise assets, defer non-critical scripts and use lazy loading, then verify the result against the agreed mobile performance budget.',
       },
       {
         title: 'Proven Shopify Plus Ecosystem',
@@ -105,7 +105,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         question: 'Will our existing customer data and SEO rankings be preserved during a migration?',
-        answer: 'Yes. We map every legacy URL with strict 301 redirects, migrate full customer order histories via API scripts, and ensure zero loss of Google organic visibility.',
+        answer: 'Yes. We map legacy URLs to 301 redirects, migrate customer and order data where the source platform allows, and monitor Search Console after cutover. No provider can guarantee that rankings will not fluctuate.',
       },
       {
         question: 'Do you offer ongoing Shopify maintenance and CRO retainers?',
@@ -120,10 +120,10 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     code: 'SRV-02',
     title: 'Enterprise WordPress & WooCommerce Architecture',
     shortTitle: 'WordPress Development',
-    tagline: 'Custom, ultra-secure, and blazing-fast WordPress platforms free from bloated plugins.',
+    tagline: 'Lean WordPress platforms built with minimal dependencies and checked against agreed performance budgets.',
     badge: 'CUSTOM ACF & WOOCOMMERCE',
     heroHighlight: 'Lean Builds. Measured Core Web Vitals. Hardened Security.',
-    metaTitle: 'Custom WordPress & WooCommerce Development Agency | Zinviq',
+    metaTitle: 'Custom WordPress & WooCommerce Development Agency',
     metaDescription: 'Zinviq builds custom WordPress and WooCommerce portals with bespoke Gutenberg blocks, ACF architectures, minimal dependencies and measured Core Web Vitals.',
     keywords: [
       'WordPress Development Agency',
@@ -135,9 +135,9 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       'Headless WordPress Agency',
     ],
     description:
-      'Say goodbye to slow, vulnerable, plugin-heavy websites. Zinviq builds enterprise WordPress and WooCommerce portals with tailor-made Gutenberg blocks, strict database optimization, and bank-grade security protocols.',
+      'Zinviq builds enterprise WordPress and WooCommerce portals with tailor-made Gutenberg blocks, database query review and hardened permission models.',
     longDescription:
-      'Most WordPress agencies install 50+ third-party plugins that conflict with each other, slow the website to a crawl, and create dangerous security backdoors. Zinviq rejects that approach completely. We build tailor-made WordPress websites using Advanced Custom Fields (ACF Pro) and native Gutenberg blocks with lightweight PHP 8.3 code and clean object-oriented architectures. The result is a lean platform that is measured against agreed performance budgets and gives your editorial team practical control.',
+      'Plugin-heavy builds can add conflicting scripts, unnecessary database work and a wider attack surface. Zinviq uses Advanced Custom Fields (ACF Pro), native Gutenberg blocks and lightweight PHP with a lean dependency list. The result is a maintainable platform measured against agreed performance budgets.',
     impactMetrics: [
       { label: 'Performance Validation', value: 'Per build', detail: 'Core Web Vitals checked on staging and after launch' },
       { label: 'Security Review', value: 'Per release', detail: 'Dependencies, headers and access rules checked before deploy' },
@@ -154,7 +154,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         title: 'Headless WordPress with Next.js',
-        description: 'Decoupled WordPress architectures utilizing WP GraphQL backend and Next.js App Router frontend for unhackable static security and sub-second rendering.',
+        description: 'Decoupled WordPress architectures using a WPGraphQL backend and Next.js App Router frontend to reduce the public server-side attack surface and support fast static delivery.',
       },
       {
         title: 'Database Query Optimization & Speed Hardening',
@@ -177,18 +177,18 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
         description: 'Your marketing team will be able to build landing pages in minutes without needing a developer for everyday changes.',
       },
       {
-        title: 'Bank-Grade Security',
-        description: 'We implement server-side firewalls, XML-RPC lockdowns, and strict permission models to eliminate malware vulnerabilities.',
+        title: 'Hardened Security',
+        description: 'We implement server-side firewalls, XML-RPC lockdowns and strict permission models to reduce common WordPress attack surfaces.',
       },
     ],
     faqs: [
       {
         question: 'Why is a custom ACF WordPress build better than Elementor or Divi?',
-        answer: 'Page builders inject massive nested DOM trees and render-blocking scripts that slow mobile load times to 4+ seconds. Custom ACF builds generate only the exact HTML required, achieving 98+ PageSpeed scores natively.',
+        answer: 'Page builders often add nested markup and render-blocking scripts. Custom ACF builds generate only the HTML the page needs and are checked against agreed Core Web Vitals budgets on staging.',
       },
       {
         question: 'Can WooCommerce handle high order volumes and large product catalogs?',
-        answer: 'Yes, when properly architected with Redis object caching, high-performance database indexing, and dedicated infrastructure, WooCommerce effortlessly handles millions in monthly GMV.',
+        answer: 'Yes, when the build is architected with object caching, database indexing and infrastructure sized to the catalogue and order volume. We scope those limits with you before development.',
       },
       {
         question: 'How do you handle ongoing WordPress security updates?',
@@ -206,7 +206,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     tagline: 'Improve visibility for commercial keywords that match buyer intent.',
     badge: 'TECHNICAL & E-COMMERCE SEO',
     heroHighlight: 'Technical Fixes. Buyer-Intent Content. Transparent Reporting.',
-    metaTitle: 'Technical SEO Agency & Organic Search Growth Services | Zinviq',
+    metaTitle: 'Technical SEO Agency & Organic Search Growth Services',
     metaDescription: 'Zinviq delivers technical SEO, e-commerce structure, editorially earned links and Schema.org structured data with transparent reporting.',
     keywords: [
       'Technical SEO Agency',
@@ -218,7 +218,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       'Schema Markup Optimization',
     ],
     description:
-      'SEO is not just rankings; it is structured, measurable work that compounds over time. We execute technical site architecture overhauls, programmatic SEO, semantic content strategies, and high-authority digital PR backlink campaigns that outrank your fiercest competitors.',
+      'SEO is structured, measurable work that compounds over time. We carry out technical architecture fixes, buyer-intent content mapping and editorial outreach, with progress tracked against agreed search queries and conversions.',
     longDescription:
       'Search engines have evolved beyond basic keyword stuffing. Modern Google ranking algorithms reward deep topical authority, semantic entity relationships, pristine Core Web Vitals, and authoritative editorial citations. Zinviq takes a mathematical, engineering-led approach to SEO. We diagnose crawl budget waste, fix faceted navigation canonical issues, build comprehensive topical content maps, and execute digital PR campaigns that earn links from tier-1 industry publications.',
     impactMetrics: [
@@ -237,7 +237,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         title: 'Topical Authority & Semantic Content Clustering',
-        description: 'Data-driven content architecture that satisfies every stage of the buyer journey, positioning your brand as the definitive authority.',
+        description: 'Content architecture mapped to the buyer journey and documented search intent, with each page tied to a measurable purpose.',
       },
       {
         title: 'White-Hat Editorial Backlink Acquisition & Digital PR',
@@ -245,7 +245,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         title: 'Schema.org JSON-LD Structured Data Engineering',
-        description: 'Custom rich snippets, review aggregations, product availability badges, and FAQ schema that dominate Google search engine result real estate.',
+        description: 'Valid Product, FAQ and Organisation structured data where eligible, checked against Google’s current rich-result guidance.',
       },
     ],
     featuredTech: ['Ahrefs', 'Semrush', 'Google Search Console', 'Screaming Frog', 'SurferSEO', 'Schema.org', 'BigQuery'],
@@ -260,8 +260,8 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
         description: 'We target commercial and transactional keywords with active buyer intent, not vanity metrics with zero purchase probability.',
       },
       {
-        title: '100% White-Hat Practices',
-        description: 'Every tactic complies strictly with Google Search Essentials to protect your business from algorithmic penalties.',
+        title: 'Search Essentials Aligned',
+        description: 'Tactics follow Google Search Essentials and are documented so changes can be reviewed if rankings move.',
       },
     ],
     faqs: [
@@ -271,11 +271,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         question: 'How do you measure SEO success?',
-        answer: 'We measure success through organic conversions, revenue generated, and non-branded organic keyword rankings in positions 1 through 3.',
+        answer: 'We measure against the goals agreed with you: organic conversions, revenue where tracking permits, and movement in agreed non-brand search queries.',
       },
       {
         question: 'Will our SEO strategy adapt to Google AI Overviews and algorithm updates?',
-        answer: 'Yes. Our strategies emphasize structured schema, information gain, and authoritative first-party data, ensuring your content is prominently cited in both traditional rankings and Google AI Overviews.',
+        answer: 'We focus on ordinary search eligibility: crawlable pages, clear structure, useful first-party content and valid structured data. Google has confirmed there is no special markup required for AI Overviews or AI Mode.',
       },
     ],
   },
@@ -286,11 +286,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     code: 'SRV-04',
     title: 'Performance Digital Marketing & Paid Ad Scaling',
     shortTitle: 'Digital Marketing & Paid Ads',
-    tagline: 'High-ROAS Meta, Google, and TikTok ad funnels backed by deep data attribution and retention.',
+    tagline: 'Meta, Google and TikTok funnels backed by clear attribution rules and retention flows.',
     badge: 'PAID ADS & RETENTION MARKETING',
     heroHighlight: 'Tested Creative. Attribution Setup. Clear Reporting.',
-    metaTitle: 'Performance Digital Marketing Agency | Meta & Google Ads | Zinviq',
-    metaDescription: 'Zinviq scales e-commerce brands with high-ROAS Meta Ads, Google Performance Max, TikTok campaigns, server-side CAPI tracking, and Klaviyo retention funnels.',
+    metaTitle: 'Performance Digital Marketing Agency | Meta & Google Ads',
+    metaDescription: 'Zinviq manages Meta Ads, Google Performance Max, TikTok campaigns, first-party conversion tracking and Klaviyo retention flows with transparent reporting.',
     keywords: [
       'Performance Marketing Agency',
       'Meta Ads Agency',
@@ -303,7 +303,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     description:
       'We engineer profitable paid advertising funnels across Google Ads, Meta Ads (Facebook & Instagram), and TikTok. Combined with automated retention flows (email and SMS), we drive predictable customer acquisition at scale while maximizing Customer Lifetime Value (LTV).',
     longDescription:
-      'Throwing money at paid ads without server-side tracking, scientific creative testing, and high-converting landing pages is a recipe for burning cash. Zinviq engineers full-funnel performance marketing machines. We set up Server-Side Conversions API (CAPI) to bypass iOS privacy blind spots, create direct-response video and static creatives, and pair every campaign with custom post-click landing pages that multiply your conversion rates.',
+      'Running paid ads without reliable tracking, structured creative tests and focused landing pages makes optimisation difficult. Zinviq sets up first-party conversion signals such as Meta CAPI where consent allows, produces direct-response creative, and pairs campaigns with dedicated post-click pages that are checked against the same agreed KPIs.',
     impactMetrics: [
       { label: 'Creative Tests', value: 'Tracked', detail: 'Each test recorded with a hypothesis and decision rule' },
       { label: 'Spend Control', value: 'Rule-based', detail: 'Budgets scaled only against agreed performance rules' },
@@ -312,7 +312,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
     deliverables: [
       {
         title: 'Meta Ads (Facebook & Instagram) Direct Response Campaigns',
-        description: 'Broad audience testing, dynamic creative optimization (DCO), and behavioral retargeting funnels designed for maximum efficiency.',
+        description: 'Audience testing, dynamic creative optimisation and retargeting flows judged against agreed acquisition targets.',
       },
       {
         title: 'Google Search & Performance Max (PMax) Campaigns',
@@ -320,11 +320,11 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         title: 'First-Party Server-Side Tracking (CAPI & GA4)',
-        description: 'Eliminating data loss from ad blockers and browser privacy restrictions to feed clean conversion signals back into ad platform algorithms.',
+        description: 'Reducing signal loss from ad blockers and browser privacy restrictions so cleaner conversion data reaches ad platforms where consent allows.',
       },
       {
         title: 'Automated Klaviyo Lifecycle Flows (Email & SMS)',
-        description: 'High-converting welcome series, browse abandonment, abandoned cart recovery, and post-purchase winback campaigns that drive 30%+ of store revenue.',
+        description: 'Welcome, browse abandonment, abandoned cart and post-purchase flows measured against agreed revenue and retention goals.',
       },
       {
         title: 'Creative Strategy & Direct-Response Assets',
@@ -332,7 +332,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
     ],
     featuredTech: ['Meta Ads Manager', 'Google Ads', 'TikTok Ads', 'Klaviyo', 'Triple Whale', 'GA4', 'Shopify Analytics'],
-    conversionHighlight: 'Hyper-targeted creative testing and server-side tracking producing consistent 4x+ ROAS.',
+    conversionHighlight: 'Creative tests and first-party tracking judged against agreed contribution-margin goals.',
     whyChooseUs: [
       {
         title: 'True Incrementality Focus',
@@ -358,7 +358,7 @@ export const SERVICES_DETAILED_DATA: Record<string, ServiceDetailItem> = {
       },
       {
         question: 'Who owns the advertising accounts and creative assets?',
-        answer: 'You retain 100% ownership of all ad accounts, pixel data, custom audiences, and creative assets produced during our engagement.',
+        answer: 'Ad accounts, first-party data and creative assets remain yours, with ownership and handover terms set out in the signed agreement.',
       },
     ],
   },

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 export const metadata = {
-  title: '404 - Page Not Found | Zinviq',
+  title: '404 - Page Not Found',
   description: 'The requested page could not be located on Zinviq.',
   robots: {
     index: false,

@@ -51,7 +51,7 @@ ${data.message}
     });
 
     if (!response.ok) {
-      console.error('[MAIL_SERVICE_ERROR]', await response.text());
+      console.error('[MAIL_SERVICE_ERROR] Resend request failed with status', response.status);
       return { success: false };
     }
 

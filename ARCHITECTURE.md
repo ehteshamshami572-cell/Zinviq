@@ -16,7 +16,8 @@ zinviq/
 │   │   └── favicon.ico
 │   ├── images/
 │   │   ├── showcase/             # Case study hero renders
-│   │   └── og-image.svg          # 1200x630 navy/hot-pink OpenGraph preview
+│   │   ├── og-image.svg          # Source artwork
+│   │   └── og-image.png          # 1200x630 raster OpenGraph preview
 │   └── fonts/                    # Local optimized typography (if not using next/font)
 ├── src/
 │   ├── app/
@@ -62,22 +63,15 @@ zinviq/
 │   │   ├── use-contact-form.ts   # Form submission & state bridge
 │   │   ├── use-mouse-glow.ts     # Mouse-tracking spotlight on light cards
 │   │   └── use-reduced-motion.ts # Accessibility optimization
-│   ├── store/                    # Redux Toolkit state management
-│   │   ├── index.ts              # Store configuration
-│   │   ├── hooks.ts              # Typed useSelector and useDispatch
-│   │   ├── provider.tsx          # Client-side StoreProvider wrapper
-│   │   └── slices/
-│   │       ├── ui-slice.ts       # Modal states, mobile drawer, toast notices
-│   │       └── showcase-slice.ts # Filter category, active project modal
+│   ├── components/ui/toast.tsx   # Lightweight toast context + viewport
 │   ├── services/                 # External API integrations & network drivers
 │   │   ├── mail-service.ts       # Resend / Nodemailer abstraction
 │   │   └── analytics.ts          # Core Web Vitals & event tracking
 │   ├── lib/
 │   │   ├── utils.ts              # cn() tailwind-merge + clsx
-│   │   ├── rate-limiter.ts       # In-memory / Upstash KV sliding window limiter
+│   │   ├── rate-limiter.ts       # Upstash-backed sliding window (dev-only memory fallback)
 │   │   ├── validations/
 │   │   │   └── contact-schema.ts # Zod schema definition for lead submissions
-│   │   └── motion-variants.ts    # Reusable Framer Motion transitions
 │   ├── types/                    # Enterprise TypeScript interfaces
 │   │   ├── project.ts
 │   │   ├── service.ts
@@ -89,7 +83,7 @@ zinviq/
 │       └── projects-data.ts
 ├── tailwind.config.ts
 ├── tsconfig.json
-├── next.config.js
+├── next.config.mjs
 └── package.json
 ```
 
@@ -119,3 +113,15 @@ The canonical tokens live in `src/app/globals.css` as HSL CSS variables, and Tai
 ```
 
 UI primitives follow shadcn/ui conventions in `src/components/ui` (`button`, `badge`, `card`, `input`, `textarea`, `select`, `label`, `accordion`). Do not reintroduce cyan/blue, purple or light-mode surfaces.
+
+---
+
+## 3. Runtime & Security Conventions
+
+- Above-the-fold content is server-rendered without Framer Motion. The LCP headline must render at full opacity in the initial HTML.
+- `next/font` supplies `--font-inter`; `--font-mono` is a local system stack. Do not hash another webfont into the global bundle.
+- Redux Toolkit, React Redux and Framer Motion are removed. Local `useState` handles navigation/filter state; `ToastProvider` handles transient notices.
+- `SpotlightCard` uses a CSS hover gradient only: no pointer listeners, `getBoundingClientRect` or per-pixel state updates.
+- Production contact submissions require `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`. In-memory rate limiting is dev-only.
+- Netlify security/cache headers live in `netlify.toml`; `vercel.json` is only relevant if the site is deployed to Vercel.
+- Canonical URLs follow `NEXT_PUBLIC_SITE_URL`. The source fallback is `https://zinviq.netlify.app` until the custom domain resolves.

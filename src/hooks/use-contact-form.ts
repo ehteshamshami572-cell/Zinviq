@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, ContactFormData } from '@/lib/validations/contact-schema';
 import { useApiMutation } from './use-api';
-import { useAppDispatch } from '@/store/hooks';
-import { addToast } from '@/store/slices/ui-slice';
+import { useToast } from '@/components/ui/toast';
 
 interface ApiResponse {
   success: boolean;
@@ -13,20 +12,26 @@ interface ApiResponse {
   inquiryId?: string;
 }
 
+function getDefaultValues(): ContactFormData {
+  return {
+    name: '',
+    email: '',
+    websiteUrl: '',
+    serviceRequired: 'shopify-development',
+    monthlyBudget: '10K_TO_25K',
+    currentStage: 'SCALING_EXISTING_BRAND',
+    message: '',
+    company: '',
+    formLoadedAt: Date.now(),
+  };
+}
+
 export function useContactForm() {
-  const dispatch = useAppDispatch();
+  const { addToast } = useToast();
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      websiteUrl: '',
-      serviceRequired: 'shopify-development',
-      monthlyBudget: '10K_TO_25K',
-      currentStage: 'SCALING_EXISTING_BRAND',
-      message: '',
-    },
+    defaultValues: getDefaultValues(),
     mode: 'onTouched',
   });
 
@@ -50,23 +55,19 @@ export function useContactForm() {
     },
     {
       onSuccess: (data) => {
-        form.reset();
-        dispatch(
-          addToast({
-            type: 'success',
-            title: 'Growth Proposal Request Received',
-            description: data.message,
-          })
-        );
+        form.reset(getDefaultValues());
+        addToast({
+          type: 'success',
+          title: 'Audit Request Received',
+          description: data.message,
+        });
       },
       onError: (errMsg) => {
-        dispatch(
-          addToast({
-            type: 'error',
-            title: 'Submission Issue',
-            description: errMsg,
-          })
-        );
+        addToast({
+          type: 'error',
+          title: 'Submission Issue',
+          description: errMsg,
+        });
       },
     }
   );

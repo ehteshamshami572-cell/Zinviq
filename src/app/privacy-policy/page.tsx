@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Zinviq',
+  title: 'Privacy Policy',
   description: 'Zinviq data privacy, cookies, and client confidentiality policy.',
   robots: {
     index: true,

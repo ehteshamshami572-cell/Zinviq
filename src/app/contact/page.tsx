@@ -1,14 +1,14 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import { ContactSection } from '@/components/sections/contact-section';
 import { Badge } from '@/components/ui/badge';
 import { Mail, Clock, ShieldCheck, PhoneCall, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Contact Zinviq | Claim Your Free Store & SEO Audit',
+  title: 'Claim Your Free Store & SEO Audit',
   description:
-    'Connect directly with Zinviq senior solutions architects. Request a focused technical and SEO audit with a 24-hour response target.',
+    'Connect directly with the Zinviq project team. Request a focused technical and SEO audit with a 24-hour response target.',
   keywords: [
     'Contact Zinviq',
     'Free SEO Audit',
@@ -20,10 +20,11 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/contact`,
   },
   openGraph: {
-    title: 'Claim Your Free Store, SEO & Growth Audit | Zinviq',
+    title: 'Claim Your Free Store, SEO & Growth Audit',
     description:
-      'Direct engineering consultation with 24-hour turnaround and 100% strict mutual confidentiality.',
+      'Direct engineering consultation with a 24-hour response target and confidential review of your project details.',
     url: `${SITE_URL}/contact`,
+    images: [OG_IMAGE],
   },
 };
 

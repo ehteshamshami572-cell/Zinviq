@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { SERVICES_LIST } from '@/constants/services-data';
 import { SpotlightCard } from '@/components/ui/spotlight-card';

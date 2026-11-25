@@ -1,18 +1,62 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contactFormSchema } from '@/lib/validations/contact-schema';
-import { rateLimiter } from '@/lib/rate-limiter';
+import { checkRateLimit } from '@/lib/rate-limiter';
+import { SITE_URL } from '@/lib/site-config';
 import { sendNotificationEmail } from '@/services/mail-service';
+
+function getClientIp(request: NextRequest): string {
+  // Netlify sets this header at the edge; prefer it over caller-controlled headers.
+  const netlifyIp = request.headers.get('x-nf-client-connection-ip');
+  if (netlifyIp) return netlifyIp;
+
+  const clientIp = request.headers.get('client-ip');
+  if (clientIp) return clientIp;
+
+  const forwarded = request.headers.get('x-forwarded-for')?.split(',')[0].trim();
+  if (forwarded) return forwarded;
+
+  if (request.ip) return request.ip;
+
+  // Avoid a global shared bucket when no trustworthy IP is available.
+  if (typeof globalThis.crypto !== 'undefined' && 'randomUUID' in globalThis.crypto) {
+    return `anonymous-${globalThis.crypto.randomUUID()}`;
+  }
+  return `anonymous-${Math.random().toString(36).slice(2)}`;
+}
+
+function isAllowedOrigin(origin: string): boolean {
+  try {
+    const originHost = new URL(origin).host;
+    const siteHost = new URL(SITE_URL).host;
+    return (
+      originHost === siteHost ||
+      originHost === `www.${siteHost}` ||
+      (siteHost.startsWith('www.') && originHost === siteHost.slice(4))
+    );
+  } catch {
+    return false;
+  }
+}
 
 export async function POST(request: NextRequest) {
   try {
-    // 1. Sliding Window Rate Limiting (5 requests per 10 mins per IP)
-    const ip =
-      request.ip ||
-      request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-      'anonymous-client';
+    const origin = request.headers.get('origin');
+    if (origin && !isAllowedOrigin(origin)) {
+      return NextResponse.json({ success: false, message: 'Forbidden origin' }, { status: 403 });
+    }
 
-    const isAllowed = await rateLimiter.checkLimit(ip, 5, 600);
-    if (!isAllowed) {
+    // Sliding window: 5 requests per 10 minutes per client, backed by Upstash in production.
+    const rateLimit = await checkRateLimit(getClientIp(request), 5, 600);
+    if (rateLimit.unavailable) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'The contact form is temporarily unavailable. Please email growth@zinviq.com.',
+        },
+        { status: 503 }
+      );
+    }
+    if (!rateLimit.allowed) {
       return NextResponse.json(
         {
           success: false,
@@ -22,7 +66,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 2. Safe JSON Parsing
     const body = await request.json().catch(() => null);
     if (!body) {
       return NextResponse.json(
@@ -36,7 +79,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: 'Inquiry received.' }, { status: 200 });
     }
 
-    // 3. Schema Validation with Zod
+    // Reject instant form completions and direct API posts without a form-open timestamp.
+    if (typeof body.formLoadedAt !== 'number' || Date.now() - body.formLoadedAt < 2000) {
+      return NextResponse.json(
+        { success: false, message: 'Please review your details before submitting.' },
+        { status: 400 }
+      );
+    }
+
     const validation = contactFormSchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
@@ -49,9 +99,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 4. Dispatch Email to Zinviq Systems
     const emailResult = await sendNotificationEmail(validation.data);
-
     if (!emailResult.success) {
       return NextResponse.json(
         {
@@ -65,7 +113,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Inquiry received. A senior engineer will review your project parameters within 24 hours.',
+        message: 'Inquiry received. The project team will review your project and respond within 24 hours.',
         inquiryId: emailResult.id,
       },
       { status: 200 }

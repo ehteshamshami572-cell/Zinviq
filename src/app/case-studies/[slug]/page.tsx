@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
+import { serializeJsonLd } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -24,27 +25,29 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const project = PROJECTS_DATA.find((p) => p.slug === params.slug);
   if (!project) {
     return {
-      title: 'Case Study Not Found | Zinviq',
+      title: 'Case Study Not Found',
     };
   }
 
   return {
-    title: `${project.title} | Example Engagement | Zinviq`,
+    title: `${project.title} — Example Engagement`,
     description: project.summary,
     alternates: {
       canonical: `${SITE_URL}/case-studies/${project.slug}`,
     },
     openGraph: {
-      title: `${project.title} — Example Engagement | Zinviq`,
+      title: `${project.title} — Example Engagement`,
       description: project.summary,
       url: `${SITE_URL}/case-studies/${project.slug}`,
       siteName: 'Zinviq',
       type: 'article',
+      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: project.title,
       description: project.summary,
+      images: ['/brand/og-image.png'],
     },
   };
 }
@@ -84,7 +87,7 @@ export default function CaseStudyDetailPage({ params }: CaseStudyPageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
 
       <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">

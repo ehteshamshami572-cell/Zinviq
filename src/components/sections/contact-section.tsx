@@ -39,7 +39,7 @@ export function ContactSection() {
               </h2>
               <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed">
                 Shopify Plus stores, clean WordPress architecture, technical SEO, and paid acquisition —
-                reviewed by senior specialists and built around measurable business outcomes.
+                reviewed by the project team and built around measurable business outcomes.
               </p>
 
               <div className="mt-8 space-y-5">
@@ -118,7 +118,7 @@ export function ContactSection() {
                     Audit Request Dispatched
                   </h3>
                   <p className="text-slate-300 text-sm sm:text-base mt-3 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to Zinviq. A senior specialist will review your details and
+                    Thank you for reaching out to Zinviq. The project team will review your details and
                     contact you within 24 hours with a clear growth roadmap.
                   </p>
                   <Button variant="secondary" className="mt-8" onClick={resetSubmission}>
@@ -127,10 +127,20 @@ export function ContactSection() {
                 </div>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-6">
-                  {/* Honeypot: hidden from humans, checked by the API */}
+                  {/* Honeypot and form-open timestamp: both are checked by the API. */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
                     <label htmlFor={`${fieldId}-company`}>Company (leave blank)</label>
-                    <input id={`${fieldId}-company`} name="company" type="text" tabIndex={-1} autoComplete="off" />
+                    <input
+                      {...register('company')}
+                      id={`${fieldId}-company`}
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                    <input
+                      {...register('formLoadedAt', { valueAsNumber: true })}
+                      type="hidden"
+                    />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -182,7 +192,19 @@ export function ContactSection() {
                         type="url"
                         autoComplete="url"
                         placeholder="https://yourbrand.com"
+                        aria-invalid={Boolean(errors.websiteUrl)}
+                        aria-describedby={
+                          errors.websiteUrl ? `${fieldId}-website-error` : undefined
+                        }
                       />
+                      {errors.websiteUrl && (
+                        <p
+                          id={`${fieldId}-website-error`}
+                          className="text-rose-300 text-xs mt-1"
+                        >
+                          {errors.websiteUrl.message}
+                        </p>
+                      )}
                     </div>
 
                     <div>

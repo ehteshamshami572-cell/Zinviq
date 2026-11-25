@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
@@ -8,9 +8,9 @@ import { ArrowUpRight, ShieldCheck, Zap, Terminal, Target, Award, Users } from '
 import { BrandLogo } from '@/components/common/brand-logo';
 
 export const metadata: Metadata = {
-  title: 'About Zinviq | Precision in Motion — Digital Engineering Studio',
+  title: 'Precision in Motion — Digital Engineering Studio',
   description:
-    'Discover the philosophy behind Zinviq: elite digital engineering, zero template bloat, sub-second load times, and compounding commercial revenue.',
+    'Discover how Zinviq approaches custom Shopify and WordPress builds, technical SEO and paid growth with measured checks and clear reporting.',
   keywords: [
     'About Zinviq',
     'Digital Engineering Studio',
@@ -24,8 +24,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Zinviq — Precision in Motion',
     description:
-      'We reject slow templates and bloated plugins. Zinviq engineers high-performance web systems and data-driven growth machines.',
+      'We reject slow templates and bloated plugins. Zinviq engineers web systems and growth workflows with measured checks.',
     url: `${SITE_URL}/about`,
+    images: [OG_IMAGE],
   },
 };
 
@@ -48,7 +49,7 @@ export default function AboutPage() {
     },
     {
       title: 'Radical Transparency',
-      desc: 'No vague monthly agency reports. You receive direct access to senior engineers, real-time analytics dashboards, and clear sprint milestone tracking.',
+      desc: 'No vague monthly agency reports. You receive direct access to the project team, shared analytics dashboards and clear sprint milestone tracking.',
       icon: <ShieldCheck className="w-6 h-6 text-pink-200" />,
     },
   ];
@@ -82,7 +83,7 @@ export default function AboutPage() {
               The Zinviq Standard: "Precision in Motion"
             </h2>
             <p>
-              Too many ambitious companies partner with digital agencies only to receive a recycled ThemeForest template with 30 conflicting plugins that takes 5 seconds to load on mobile and converts at less than 1%.
+              Too many companies receive a recycled template with competing plugins, slow mobile pages and no clear link between design choices and conversion data.
             </p>
             <p>
               <strong className="text-white font-semibold">Zinviq was built to be the antidote.</strong> We are a modern software house combining rigorous computer science disciplines with conversion-rate psychology and data-driven marketing.
@@ -148,7 +149,7 @@ export default function AboutPage() {
             Build With Precision. Scale With Certainty.
           </h2>
           <p className="text-slate-300 text-base max-w-2xl mx-auto mb-8">
-            Schedule an introductory consultation with our senior solutions directors to discover how Zinviq can accelerate your digital roadmap.
+            Schedule an introductory consultation with our project team to review your digital roadmap and scope the next steps.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact">

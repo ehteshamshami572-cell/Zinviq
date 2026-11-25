@@ -1,5 +1,6 @@
 import React from 'react';
-import { SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
+import { serializeJsonLd } from '@/lib/json-ld';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = SERVICES_DETAILED_DATA[params.slug];
   if (!service) {
     return {
-      title: 'Service Not Found | Zinviq',
+      title: 'Service Not Found',
     };
   }
 
@@ -42,11 +43,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       url: `${SITE_URL}/services/${service.slug}`,
       siteName: 'Zinviq',
       type: 'website',
+      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: service.metaTitle,
       description: service.metaDescription,
+      images: ['/brand/og-image.png'],
     },
   };
 }
@@ -113,11 +116,11 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
 
       <div className="bg-navy-950 pt-36 pb-28 relative overflow-hidden">
@@ -317,7 +320,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               Ready to Accelerate Your {service.shortTitle}?
             </h2>
             <p className="text-slate-300 text-base max-w-2xl mx-auto mb-8">
-              Contact our senior engineering and growth directors today. We analyze your parameters and deliver a complimentary 40-point technical roadmap within 24 hours.
+              Contact our project team today. We review your requirements and share a prioritised technical roadmap after the free audit.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">

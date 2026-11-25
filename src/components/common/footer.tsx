@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { BrandLogo } from './brand-logo';
 import { CONTACT_EMAIL, isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
+import { PROJECTS_DATA } from '@/constants/projects-data';
 
 export function Footer() {
   return (
@@ -86,29 +87,16 @@ export function Footer() {
               Case Studies
             </h3>
             <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/case-studies/aura-luxe-shopify" className="hover:text-pink-200 transition-colors">
-                  Aura Luxe London (+340% Sales)
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies/novacrest-wordpress-portal" className="hover:text-pink-200 transition-colors">
-                  Novacrest Portal (100 Core Vitals)
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies/nordic-biohealth-seo" className="hover:text-pink-200 transition-colors">
-                  Nordic BioHealth (180K SEO Visits)
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies/veloce-performance-marketing" className="hover:text-pink-200 transition-colors">
-                  Veloce Watches (4.6x ROAS)
-                </Link>
-              </li>
+              {PROJECTS_DATA.slice(0, 4).map((project) => (
+                <li key={project.slug}>
+                  <Link href={`/case-studies/${project.slug}`} className="hover:text-pink-200 transition-colors">
+                    {project.title}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link href="/case-studies" className="text-xs font-mono font-semibold text-pink-200 hover:underline block pt-1">
-                  All Case Studies →
+                  All Example Engagements →
                 </Link>
               </li>
             </ul>
