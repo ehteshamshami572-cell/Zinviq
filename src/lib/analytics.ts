@@ -28,6 +28,27 @@ export function pushEvent(event: string, params: Record<string, unknown> = {}): 
   window.dataLayer.push({ event, ...params });
 }
 
+export function consentState(choice: ConsentChoice) {
+  const granted = choice === 'all';
+  return {
+    ad_storage: granted ? 'granted' : 'denied',
+    analytics_storage: granted ? 'granted' : 'denied',
+    ad_user_data: granted ? 'granted' : 'denied',
+    ad_personalization: granted ? 'granted' : 'denied',
+  };
+}
+
+/** Injects GTM once. Safe to call on load and again after a consent change. */
+export function loadGtm(): void {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (document.querySelector(`script[data-gtm="${GTM_CONTAINER_ID}"]`)) return;
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+  script.setAttribute('data-gtm', GTM_CONTAINER_ID);
+  document.head.appendChild(script);
+}
+
 export function readConsent(): ConsentChoice | null {
   if (typeof window === 'undefined') return null;
   try {
@@ -45,20 +66,16 @@ export function saveConsent(choice: ConsentChoice): void {
   } catch {
     // Storage can be disabled; the in-page choice still applies for this visit.
   }
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('consent', 'update', consentState(choice));
+  }
+  if (choice === 'all') loadGtm();
+
   window.dispatchEvent(new CustomEvent<ConsentChoice>(CONSENT_CHANGE_EVENT, { detail: choice }));
 }
 
 export function openCookieSettings(): void {
   if (typeof window === 'undefined') return;
   window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
-}
-
-export function consentState(choice: ConsentChoice) {
-  const granted = choice === 'all';
-  return {
-    ad_storage: granted ? 'granted' : 'denied',
-    analytics_storage: granted ? 'granted' : 'denied',
-    ad_user_data: granted ? 'granted' : 'denied',
-    ad_personalization: granted ? 'granted' : 'denied',
-  };
 }

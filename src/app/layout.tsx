@@ -9,8 +9,13 @@ import { ToastProvider } from '@/components/ui/toast';
 import { WhatsAppButton } from '@/components/common/whatsapp-button';
 import { AnalyticsProvider } from '@/components/analytics/analytics-provider';
 import { CookieConsent } from '@/components/analytics/cookie-consent';
+import { GTM_CONTAINER_ID } from '@/lib/analytics';
 
-/** Consent Mode v2 defaults: no Google storage until the visitor opts in. */
+/**
+ * Consent Mode v2 defaults: no Google storage until the visitor opts in.
+ * Returning visitors who already accepted analytics get GTM immediately here,
+ * before React hydration, so the container is never blocked by a hydration issue.
+ */
 const consentDefaultScript = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -22,6 +27,23 @@ const consentDefaultScript = `
     ad_personalization: 'denied',
     wait_for_update: 500
   });
+  try {
+    if (localStorage.getItem('zinviq-cookie-consent') === 'all') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      if (!document.querySelector('script[data-gtm="${GTM_CONTAINER_ID}"]')) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}';
+        s.setAttribute('data-gtm', '${GTM_CONTAINER_ID}');
+        document.head.appendChild(s);
+      }
+    }
+  } catch (e) {}
 `;
 
 const inter = Inter({
