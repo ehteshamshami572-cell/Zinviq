@@ -11,6 +11,14 @@ export const OG_IMAGE = {
   alt: 'Zinviq — Shopify, WordPress, SEO and growth services',
 } as const;
 
+/** Social profiles for Organization schema. Unset values are omitted, never invented. */
+export const SOCIAL_URLS = [
+  process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+  process.env.NEXT_PUBLIC_X_URL,
+  process.env.NEXT_PUBLIC_FACEBOOK_URL,
+].filter((url): url is string => Boolean(url && /^https:\/\//.test(url)));
+
 export function absoluteUrl(path = ''): string {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }

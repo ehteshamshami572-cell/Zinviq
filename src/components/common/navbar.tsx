@@ -7,6 +7,7 @@ import { BrandLogo } from './brand-logo';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ArrowUpRight, Sparkles, ChevronDown, MessageCircle } from 'lucide-react';
 import { isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
+import { EVENTS, pushEvent } from '@/lib/analytics';
 
 const SERVICE_SUBMENU = [
   {
@@ -186,6 +187,8 @@ export function Navbar() {
 
           <Link
             href="/contact"
+            data-cta="contact_us"
+            data-cta-location="navbar"
             className="hidden md:inline-flex rounded-lg border border-white/10 px-4 py-2 text-xs font-semibold text-white transition-colors hover:border-pink-400/60 hover:text-pink-200"
           >
             Contact Us
@@ -197,6 +200,9 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with Zinviq on WhatsApp"
+              data-cta="whatsapp"
+              data-cta-location="navbar"
+              onClick={() => pushEvent(EVENTS.whatsappClick, { cta_location: 'navbar' })}
               className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-[#25D366]/30 px-3 py-2 text-xs font-semibold text-[#25D366] transition-colors hover:bg-[#25D366]/10"
             >
               <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
@@ -204,7 +210,7 @@ export function Navbar() {
             </a>
           )}
 
-          <Link href="/contact">
+          <Link href="/contact" data-cta="get_quote" data-cta-location="navbar">
             <Button size="sm" variant="primary">
               <Sparkles className="w-3.5 h-3.5 mr-1.5" />
               Get Quote
@@ -298,7 +304,7 @@ export function Navbar() {
             </Link>
 
             <div className="pt-4 flex flex-col gap-3">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="w-full">
+              <Link href="/contact" data-cta="get_quote" data-cta-location="mobile_nav" onClick={() => setMobileMenuOpen(false)} className="w-full">
                 <Button variant="primary" className="w-full">
                   Get Quote &amp; Free Audit
                 </Button>
@@ -308,7 +314,12 @@ export function Navbar() {
                   href={whatsappUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
+                  data-cta="whatsapp"
+                  data-cta-location="mobile_nav"
+                  onClick={() => {
+                    pushEvent(EVENTS.whatsappClick, { cta_location: 'mobile_nav' });
+                    setMobileMenuOpen(false);
+                  }}
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#25D366]/30 px-4 py-2.5 text-sm font-semibold text-[#25D366]"
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />

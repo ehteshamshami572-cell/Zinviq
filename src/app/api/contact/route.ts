@@ -3,6 +3,7 @@ import { contactFormSchema } from '@/lib/validations/contact-schema';
 import { checkRateLimit } from '@/lib/rate-limiter';
 import { SITE_URL } from '@/lib/site-config';
 import { sendNotificationEmail } from '@/services/mail-service';
+import { verifyCaptcha } from '@/lib/turnstile';
 
 function getClientIp(request: NextRequest): string {
   // Netlify sets this header at the edge; prefer it over caller-controlled headers.
@@ -95,6 +96,23 @@ export async function POST(request: NextRequest) {
           message: 'Validation failed. Please verify the submitted fields.',
           errors: validation.error.flatten().fieldErrors,
         },
+        { status: 400 }
+      );
+    }
+
+    const captcha = await verifyCaptcha(validation.data.captchaToken, getClientIp(request));
+    if (captcha.unavailable) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Bot protection is temporarily unavailable. Please email growth@zinviq.com.',
+        },
+        { status: 503 }
+      );
+    }
+    if (!captcha.ok) {
+      return NextResponse.json(
+        { success: false, message: 'Bot check failed. Please reload the page and try again.' },
         { status: 400 }
       );
     }

@@ -3,6 +3,7 @@ import { SITE_URL } from '@/lib/site-config';
 
 export default function robots(): MetadataRoute.Robots {
   return {
+    host: SITE_URL,
     rules: {
       userAgent: '*',
       allow: '/',

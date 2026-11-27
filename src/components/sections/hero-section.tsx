@@ -77,14 +77,14 @@ export function HeroSection() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/contact" className="w-full sm:w-auto">
+          <Link href="/contact" data-cta="claim_free_audit" data-cta-location="hero" className="w-full sm:w-auto">
             <Button size="lg" variant="primary" className="w-full sm:w-auto">
               <Sparkles className="w-4 h-4 mr-2" />
               Claim Free Store &amp; SEO Audit
               <ArrowUpRight className="w-4 h-4 ml-1" />
             </Button>
           </Link>
-          <Link href="/services" className="w-full sm:w-auto">
+          <Link href="/services" data-cta="see_services" data-cta-location="hero" className="w-full sm:w-auto">
             <Button size="lg" variant="secondary" className="w-full sm:w-auto">
               See Services &amp; Fit
             </Button>

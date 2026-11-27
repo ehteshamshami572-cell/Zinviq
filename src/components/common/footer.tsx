@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { BrandLogo } from './brand-logo';
 import { CONTACT_EMAIL, isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
 import { PROJECTS_DATA } from '@/constants/projects-data';
+import { CookieSettingsButton } from '@/components/analytics/cookie-settings-button';
 
 export function Footer() {
   return (
@@ -138,7 +139,8 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-slate-300">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-slate-300">Terms of Service</Link>
-            <Link href="/contact" className="text-pink-200 hover:underline">Request Free Audit</Link>
+            <CookieSettingsButton />
+            <Link href="/contact" data-cta="request_free_audit" data-cta-location="footer" className="text-pink-200 hover:underline">Request Free Audit</Link>
           </div>
         </div>
       </div>

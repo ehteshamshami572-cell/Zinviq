@@ -12,7 +12,7 @@ import { SpotlightCard } from '@/components/ui/spotlight-card';
 export const metadata: Metadata = {
   title: 'Digital Engineering & Growth Services',
   description:
-    'Explore Zinviq full suite of digital engineering capabilities: Custom Shopify development, enterprise WordPress, data-driven technical SEO, and paid performance marketing.',
+    'Explore Zinviq services: custom Shopify builds, enterprise WordPress, technical SEO and paid performance marketing with clear reporting.',
   keywords: [
     'Shopify Development Services',
     'WordPress Development Agency',

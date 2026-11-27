@@ -1,10 +1,12 @@
 'use client';
 
+import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, ContactFormData } from '@/lib/validations/contact-schema';
 import { useApiMutation } from './use-api';
 import { useToast } from '@/components/ui/toast';
+import { EVENTS, pushEvent } from '@/lib/analytics';
 
 interface ApiResponse {
   success: boolean;
@@ -23,11 +25,13 @@ function getDefaultValues(): ContactFormData {
     message: '',
     company: '',
     formLoadedAt: Date.now(),
+    captchaToken: '',
   };
 }
 
 export function useContactForm() {
   const { addToast } = useToast();
+  const submittedForm = useRef<ContactFormData | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -55,6 +59,12 @@ export function useContactForm() {
     },
     {
       onSuccess: (data) => {
+        pushEvent(EVENTS.generateLead, {
+          value: 1,
+          currency: 'USD',
+          service_needed: submittedForm.current?.serviceRequired || 'unknown',
+          form_location: 'contact_section',
+        });
         form.reset(getDefaultValues());
         addToast({
           type: 'success',
@@ -73,6 +83,7 @@ export function useContactForm() {
   );
 
   const onSubmit = form.handleSubmit(async (data) => {
+    submittedForm.current = data;
     await mutate(data);
   });
 

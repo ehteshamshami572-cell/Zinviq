@@ -44,6 +44,7 @@ export const contactFormSchema = z.object({
     .max(2500, { message: 'Message cannot exceed 2500 characters' }),
   company: z.string().max(100).optional(),
   formLoadedAt: z.number().int().positive(),
+  captchaToken: z.string().max(4096).optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

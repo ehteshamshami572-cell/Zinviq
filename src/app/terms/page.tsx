@@ -1,10 +1,19 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Zinviq terms of service and client engagement agreements.',
+  title: 'Terms of Engagement',
+  description:
+    'Terms covering Zinviq audit requests, project scoping, delivery milestones and client responsibilities.',
+  alternates: { canonical: `${SITE_URL}/terms` },
+  openGraph: {
+    title: 'Terms of Engagement | Zinviq',
+    description: 'Scope, delivery and engagement terms for Zinviq services.',
+    url: `${SITE_URL}/terms`,
+    images: [OG_IMAGE],
+  },
   robots: {
     index: true,
     follow: true,

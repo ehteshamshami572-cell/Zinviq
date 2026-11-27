@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
+import { OG_IMAGE, SITE_URL, SOCIAL_URLS } from '@/lib/site-config';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { serializeJsonLd } from '@/lib/json-ld';
@@ -7,6 +7,22 @@ import { Navbar } from '@/components/common/navbar';
 import { Footer } from '@/components/common/footer';
 import { ToastProvider } from '@/components/ui/toast';
 import { WhatsAppButton } from '@/components/common/whatsapp-button';
+import { AnalyticsProvider } from '@/components/analytics/analytics-provider';
+import { CookieConsent } from '@/components/analytics/cookie-consent';
+
+/** Consent Mode v2 defaults: no Google storage until the visitor opts in. */
+const consentDefaultScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+`;
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,6 +51,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Zinviq Digital Technologies' }],
   creator: 'Zinviq',
   category: 'Technology',
+  applicationName: 'Zinviq',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: '/icon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -72,6 +93,7 @@ export default function RootLayout({
     description:
       'Digital engineering and growth agency specializing in Shopify development, WordPress development, technical SEO, and performance marketing.',
     areaServed: 'Worldwide',
+    ...(SOCIAL_URLS.length > 0 ? { sameAs: SOCIAL_URLS } : {}),
     email: 'growth@zinviq.com',
     contactPoint: {
       '@type': 'ContactPoint',
@@ -122,6 +144,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
@@ -130,6 +153,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="I1eYWxiXP_atAIp1Wrpg4_ultLkQpugHgUw680FCwSI" />
       </head>
       <body className="min-h-screen bg-background text-white font-sans antialiased selection:bg-pink-500/50 selection:text-white">
+        <AnalyticsProvider />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-pink-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
@@ -142,6 +166,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
         </ToastProvider>
+        <CookieConsent />
       </body>
     </html>
   );

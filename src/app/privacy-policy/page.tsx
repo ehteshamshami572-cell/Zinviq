@@ -2,10 +2,19 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { OG_IMAGE, SITE_URL } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Zinviq data privacy, cookies, and client confidentiality policy.',
+  title: 'Privacy & Cookie Policy',
+  description:
+    'How Zinviq handles enquiry data, cookies, Google Analytics consent, spam checks, and client confidentiality.',
+  alternates: { canonical: `${SITE_URL}/privacy-policy` },
+  openGraph: {
+    title: 'Privacy & Cookie Policy | Zinviq',
+    description: 'Data handling, analytics consent and confidentiality practices at Zinviq.',
+    url: `${SITE_URL}/privacy-policy`,
+    images: [OG_IMAGE],
+  },
   robots: {
     index: true,
     follow: true,
@@ -48,12 +57,27 @@ export default function PrivacyPolicyPage() {
             <li>Comply with applicable legal and financial compliance obligations.</li>
           </ul>
 
-          <h2 className="text-xl font-bold text-white pt-4">4. Third-Party Sharing</h2>
+          <h2 className="text-xl font-bold text-white pt-4">4. Cookies, Analytics and Consent</h2>
           <p>
-            Zinviq never sells, rents, or monetizes client information or audit submissions. We do not disclose your proprietary information to any external marketing brokers.
+            Necessary storage is used to run this site and remember your cookie choice. Google Analytics 4 is loaded through our Google Tag Manager container (GTM-WNZS3ZJG) only after you select &ldquo;Accept all&rdquo;; before that, Google Consent Mode is set to denied for analytics and advertising storage. Analytics helps us see which pages and enquiries are useful. You can change your choice at any time using the &ldquo;Cookie settings&rdquo; link in the footer.
           </p>
 
-          <h2 className="text-xl font-bold text-white pt-4">5. Contact Information</h2>
+          <h2 className="text-xl font-bold text-white pt-4">5. Spam Protection</h2>
+          <p>
+            Our contact form uses a honeypot field, a form-open timestamp, rate limiting and, where enabled, Cloudflare Turnstile. Turnstile verifies that a submission came from a person and does not set analytics cookies.
+          </p>
+
+          <h2 className="text-xl font-bold text-white pt-4">6. Retention and Your Choices</h2>
+          <p>
+            Enquiry details are kept only as long as needed to respond and manage the engagement. You can ask for access to or deletion of your data at the address in section 8.
+          </p>
+
+          <h2 className="text-xl font-bold text-white pt-4">7. Third-Party Sharing</h2>
+          <p>
+            Zinviq never sells, rents, or monetizes client information or audit submissions. We do not disclose your proprietary information to any external marketing brokers. Service providers such as Resend (email delivery), Upstash (rate limiting) and Google (analytics, with your consent) process data only for the stated purpose.
+          </p>
+
+          <h2 className="text-xl font-bold text-white pt-4">8. Contact Information</h2>
           <p>
             If you have questions regarding this Privacy Policy or wish to request data deletion, contact our privacy compliance officer at <span className="text-pink-200 font-mono">legal@zinviq.com</span>.
           </p>

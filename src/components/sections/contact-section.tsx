@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId } from 'react';
+import React, { useCallback, useId, useRef } from 'react';
 import { useContactForm } from '@/hooks/use-contact-form';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -11,11 +11,28 @@ import { Select } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Clock, ShieldCheck, CheckCircle2, ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
 import { CONTACT_EMAIL, isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
+import { Turnstile } from '@/components/ui/turnstile';
+import { EVENTS, pushEvent } from '@/lib/analytics';
 
 export function ContactSection() {
   const { form, onSubmit, isLoading, isSuccess, resetSubmission } = useContactForm();
-  const { register, formState: { errors } } = form;
+  const { register, setValue, formState: { errors } } = form;
   const fieldId = useId();
+  const formStarted = useRef(false);
+
+  const handleCaptchaVerify = useCallback(
+    (token: string) => setValue('captchaToken', token, { shouldValidate: false }),
+    [setValue]
+  );
+  const handleCaptchaExpire = useCallback(
+    () => setValue('captchaToken', '', { shouldValidate: false }),
+    [setValue]
+  );
+  const handleFormFocus = () => {
+    if (formStarted.current) return;
+    formStarted.current = true;
+    pushEvent(EVENTS.formStart, { form_location: 'contact_section' });
+  };
 
   return (
     <section id="contact" className="py-28 bg-navy-950 relative border-t border-white/[0.06]">
@@ -126,7 +143,7 @@ export function ContactSection() {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} className="space-y-6">
+                <form onSubmit={onSubmit} onFocusCapture={handleFormFocus} className="space-y-6">
                   {/* Honeypot and form-open timestamp: both are checked by the API. */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
                     <label htmlFor={`${fieldId}-company`}>Company (leave blank)</label>
@@ -141,6 +158,7 @@ export function ContactSection() {
                       {...register('formLoadedAt', { valueAsNumber: true })}
                       type="hidden"
                     />
+                    <input {...register('captchaToken')} type="hidden" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -268,7 +286,17 @@ export function ContactSection() {
                     )}
                   </div>
 
-                  <Button type="submit" variant="primary" size="lg" isLoading={isLoading} className="w-full">
+                  <Turnstile onVerify={handleCaptchaVerify} onExpire={handleCaptchaExpire} />
+
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    isLoading={isLoading}
+                    data-cta="claim_free_audit"
+                    data-cta-location="contact_form"
+                    className="w-full"
+                  >
                     Claim Free Audit & Growth Strategy
                     <ArrowRight className="ml-2" />
                   </Button>
