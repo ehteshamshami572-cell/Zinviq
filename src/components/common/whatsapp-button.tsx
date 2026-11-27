@@ -1,29 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
 import { EVENTS, pushEvent } from '@/lib/analytics';
 
 export function WhatsAppButton() {
-  // Start with a deterministic URL so server and client markup match, then add
-  // the current page URL after hydration.
-  const [href, setHref] = useState(() => whatsappUrl());
-
-  useEffect(() => {
-    if (!isWhatsappEnabled) return;
-    setHref(
-      whatsappUrl(
-        "Hi Zinviq, I'd like a free audit of my website: " + window.location.href
-      )
-    );
-  }, []);
-
   if (!isWhatsappEnabled) return null;
 
   return (
     <a
-      href={href}
+      href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Zinviq on WhatsApp"

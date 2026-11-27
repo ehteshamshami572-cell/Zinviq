@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { BrandLogo } from './brand-logo';
 import { CONTACT_EMAIL, isWhatsappEnabled, whatsappUrl } from '@/lib/contact-config';
 import { PROJECTS_DATA } from '@/constants/projects-data';
+import { FACEBOOK_URL, LINKEDIN_URL } from '@/lib/site-config';
 import { CookieSettingsButton } from '@/components/analytics/cookie-settings-button';
 
 export function Footer() {
@@ -128,6 +129,26 @@ export function Footer() {
                 <Link href="/terms" className="hover:text-pink-200 transition-colors">
                   Terms of Engagement
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-200 transition-colors"
+                >
+                  LinkedIn →
+                </a>
+              </li>
+              <li>
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-200 transition-colors"
+                >
+                  Facebook →
+                </a>
               </li>
             </ul>
           </div>
