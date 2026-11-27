@@ -126,6 +126,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
+        <meta name="msvalidate.01" content="4D614D444DCD06CD337A566141DB6B07" />
+        <meta name="google-site-verification" content="I1eYWxiXP_atAIp1Wrpg4_ultLkQpugHgUw680FCwSI" />
       </head>
       <body className="min-h-screen bg-background text-white font-sans antialiased selection:bg-pink-500/50 selection:text-white">
         <a
