@@ -30,9 +30,10 @@ export function CookieConsent() {
             Cookie preferences
           </h2>
           <p id="cookie-consent-description" className="mt-1 max-w-3xl text-xs leading-relaxed text-slate-300">
-            We use necessary cookies for this site to work. With your permission, Google Analytics via
-            Google Tag Manager helps us understand which pages and enquiries are useful. No analytics
-            cookies are set unless you choose &ldquo;Accept all&rdquo;. See our{' '}
+            We use necessary storage for this site to work. With your permission, Google Analytics via
+            Google Tag Manager, the Tawk.to live-chat widget and OneSignal push notifications help us
+            understand enquiries, reply to visitors and send updates. None are loaded unless you choose
+            &ldquo;Accept all&rdquo;. See our{' '}
             <Link href="/privacy-policy" className="text-pink-200 underline hover:text-pink-100">
               Privacy &amp; Cookie Policy
             </Link>

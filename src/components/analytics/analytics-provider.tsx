@@ -5,6 +5,8 @@ import {
   CONSENT_CHANGE_EVENT,
   EVENTS,
   loadGtm,
+  loadOneSignal,
+  loadTawk,
   pushEvent,
   readConsent,
 } from '@/lib/analytics';
@@ -16,10 +18,18 @@ import {
  */
 export function AnalyticsProvider() {
   useEffect(() => {
-    if (readConsent() === 'all') loadGtm();
+    if (readConsent() === 'all') {
+      loadGtm();
+      loadTawk();
+      loadOneSignal();
+    }
 
     const onConsentChange = () => {
-      if (readConsent() === 'all') loadGtm();
+      if (readConsent() === 'all') {
+        loadGtm();
+        loadTawk();
+        loadOneSignal();
+      }
     };
 
     const onClick = (event: MouseEvent) => {

@@ -7,7 +7,7 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value:
-      "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://challenges.cloudflare.com",
+      "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.tawk.to https://onesignal.com https://*.onesignal.com; font-src 'self' data: https://*.tawk.to; style-src 'self' 'unsafe-inline' https://*.tawk.to; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://*.tawk.to https://cdn.onesignal.com https://onesignal.com https://*.onesignal.com; frame-src https://challenges.cloudflare.com https://*.tawk.to https://onesignal.com https://*.onesignal.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://challenges.cloudflare.com https://*.tawk.to wss://*.tawk.to https://onesignal.com https://*.onesignal.com",
   },
 ];
 

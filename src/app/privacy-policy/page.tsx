@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-xl font-bold text-white pt-4">4. Cookies, Analytics and Consent</h2>
           <p>
-            Necessary storage is used to run this site and remember your cookie choice. Google Analytics 4 is loaded through our Google Tag Manager container (GTM-WNZS3ZJG) only after you select &ldquo;Accept all&rdquo;; before that, Google Consent Mode is set to denied for analytics and advertising storage. Analytics helps us see which pages and enquiries are useful. You can change your choice at any time using the &ldquo;Cookie settings&rdquo; link in the footer.
+            Necessary storage is used to run this site and remember your cookie choice. Google Analytics 4 is loaded through our Google Tag Manager container (GTM-WNZS3ZJG) only after you select &ldquo;Accept all&rdquo;; before that, Google Consent Mode is set to denied for analytics and advertising storage. The Tawk.to live-chat widget and OneSignal push notifications are also loaded only after &ldquo;Accept all&rdquo;, so they cannot set chat or push identifiers before consent. You can change your choice at any time using the &ldquo;Cookie settings&rdquo; link in the footer.
           </p>
 
           <h2 className="text-xl font-bold text-white pt-4">5. Spam Protection</h2>
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-xl font-bold text-white pt-4">7. Third-Party Sharing</h2>
           <p>
-            Zinviq never sells, rents, or monetizes client information or audit submissions. We do not disclose your proprietary information to any external marketing brokers. Service providers such as Resend (email delivery), Upstash (rate limiting) and Google (analytics, with your consent) process data only for the stated purpose.
+            Zinviq never sells, rents, or monetizes client information or audit submissions. We do not disclose your proprietary information to any external marketing brokers. Service providers such as Resend (email delivery), Upstash (rate limiting), Google (analytics, with your consent), Tawk.to (live chat, with your consent) and OneSignal (push notifications, with your consent) process data only for the stated purpose.
           </p>
 
           <h2 className="text-xl font-bold text-white pt-4">8. Contact Information</h2>

@@ -16,8 +16,6 @@ function getClientIp(request: NextRequest): string {
   const forwarded = request.headers.get('x-forwarded-for')?.split(',')[0].trim();
   if (forwarded) return forwarded;
 
-  if (request.ip) return request.ip;
-
   // Avoid a global shared bucket when no trustworthy IP is available.
   if (typeof globalThis.crypto !== 'undefined' && 'randomUUID' in globalThis.crypto) {
     return `anonymous-${globalThis.crypto.randomUUID()}`;

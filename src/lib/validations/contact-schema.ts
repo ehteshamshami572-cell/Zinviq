@@ -23,11 +23,11 @@ export const contactFormSchema = z.object({
       'digital-marketing',
       'full-growth-stack',
     ],
-    { required_error: 'Please select a core service' }
+    { error: 'Please select a core service' }
   ),
   monthlyBudget: z.enum(
     ['5K_TO_10K', '10K_TO_25K', '25K_TO_50K', 'ABOVE_50K'],
-    { required_error: 'Please select an estimated budget tier' }
+    { error: 'Please select an estimated budget tier' }
   ),
   currentStage: z.enum(
     [
@@ -36,7 +36,7 @@ export const contactFormSchema = z.object({
       'MIGRATION_OR_REDESIGN',
       'NEED_MORE_TRAFFIC_SALES',
     ],
-    { required_error: 'Please select your current business stage' }
+    { error: 'Please select your current business stage' }
   ),
   message: z
     .string()
